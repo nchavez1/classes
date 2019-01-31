@@ -1,6 +1,6 @@
 # Class #1
 
-# Observable examples
+## Motivation
 
 * [Unemployment rate by county](https://beta.observablehq.com/@mbostock/d3-quantile-choropleth)
 * [Obama and Romney](https://archive.nytimes.com/www.nytimes.com/interactive/2012/11/11/sunday-review/counties-moving.html)
@@ -10,25 +10,41 @@
     * [OpenStreetMap description](https://www.openstreetmap.org/#map=4/38.01/-95.84) (wikipedia)
 * [GeoJSON in Three.js](https://beta.observablehq.com/@mbostock/geojson-in-three-js) -- Dynamic 3-D geospatial demo
 * Earthquakes
-    * [Interactive time-space filter on a map](https://pbogden.com/shake/)
     * [USGS data on a rotating glove](https://beta.observablehq.com/@jashkenas/quakespotter-0-1) -- observable demo
     * [USGS data source](https://earthquake.usgs.gov/earthquakes/feed/)
     * [USGS GeoJSON feed](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php)
+    * [Interactive time-space filter on a map](https://pbogden.com/shake/)
 * The sky's the limit (not in this course, but maybe the next one)
     * [Machine learning in a browser](https://beta.observablehq.com/@mbostock/lets-try-t-sne) (image classification)
     * [Tensorflow demo](https://github.com/tensorflow/tfjs-examples/tree/master/tsne-mnist-canvas)
     * [Tensorflow project](https://www.tensorflow.org/)
-* [Downloading and embedding notebooks](https://beta.observablehq.com/@jashkenas/downloading-and-embedding-notebooks)
+* [Mike Bostock](https://bost.ocks.org/mike/) (Creator of D3)
+* [Breakout](https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript) (in JavaScript)
 
-# Github
+## Evolution of GIS and the Web
 
-* [Github](https://github.com/)
+ * Desktop GIS
+    * Analysts (Esri, QGIS) -- raster (geotiff), vector (shapefile)
+    * Software engineers (C, C++, SQL) -- GDAL, OGR
+    * Scientists (Matlab, Fortran) -- matrix, vector
+* Web (yesterday)
+    * Analysts (MSWord/Google docs, Excel/Tableau) -- images (PNG, GIF), xlsx
+    * Graphic artists (Photoshop, Illustrator)  -- images, SVG
+    * Web designers (HTML, CSS) -- images (PNG, GIF), SVG
+    * Web developers (JavaScript, HTML5) - canvas, XML
+    * Scientists (Python/Matplotlib, R) -- images, data
+* Web (today)
+    * Data journalists (D3, HTML5) -- canvas/WebGL, SVG
+    * Data scientists (Python/Plotly, R/Shiny) -- images, data
+    * Scientists -- data/metadata, data/metadata
 
-# Introduction to code
+## Common data formats
 
-* Reading: [Introduction to code](https://beta.observablehq.com/@mbostock/introduction-to-code) by Mike Bostock
+* Downloads -- shapefiles, xlsx, geotiff
+* Mapping apps (google maps, mapbox, leaflet) -- PNG, GIF (raster)
+* Data APIs -- CSV, JSON, GeoJSON (vector)
 
-# Problem-solving in Python, JavaScript, etc.
+## Problem-solving in Python, JavaScript, etc.
 
 "top programming languages"...
 
@@ -52,7 +68,7 @@ Some geospatial considerations
     * Python (language) has many data-oriented libaries with Python bindings to the C++ API
     * [Plot.ly](https://plot.ly/python/) Python library with platform-independent graphics (JavaScript) on the front end
 
-Whether you program in Python, Java, JavaScript or some other language, google is your friend. 
+Whether you program in Python, Java, JavaScript or some other language, google is your friend.
 In the old days: you either remembered syntax, looked in a language reference book, or asked a colleague.
 Today: it's still good to remember syntax, but the real skill is knowing how to quickly "find" the answer.
 And the key to finding the answer is knowing how to phrase the question for google and filter the results.
@@ -83,58 +99,6 @@ And the key to finding the answer is knowing how to phrase the question for goog
     * Top link -- quote from stackoverflow.com
     * Second link -- a list of stackoverflow links
 
-* If you search for "remove an element from an list javascript"
-
-
-
-### Observable references
-
-* [How saving works](https://beta.observablehq.com/@mbostock/how-saving-works)
-
-### Other references
-
-* [Mike Bostock](https://bost.ocks.org/mike/) (Creator of D3)
-* [Breakout](https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript) (in JavaScript)
-* [Introduction to data](https://beta.observablehq.com/@mbostock/introduction-to-data)
-
-
-* If you search for "remove an element from an list javascript"
-
-
-
-### Observable references
-
-* [How saving works](https://beta.observablehq.com/@mbostock/how-saving-works)
-
-### Other references
-
-* [Mike Bostock](https://bost.ocks.org/mike/) (Creator of D3)
-* [Breakout](https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript) (in JavaScript)
-* [Introduction to data](https://beta.observablehq.com/@mbostock/introduction-to-data)
-
-# GIS and the Web
-
- * Desktop GIS
-    * Analysts (Esri, QGIS) -- raster (geotiff), vector (shapefile)
-    * Software engineers (C, C++, SQL) -- GDAL, OGR
-    * Scientists (Matlab, Fortran) -- matrix, vector
-* Web (yesterday)
-    * Analysts (MSWord/Google docs, Excel/Tableau) -- images (PNG, GIF), xlsx
-    * Graphic artists (Photoshop, Illustrator)  -- images, SVG
-    * Web designers (HTML, CSS) -- images (PNG, GIF), SVG
-    * Web developers (JavaScript, HTML5) - canvas, XML
-    * Scientists (Python/Matplotlib, R) -- images, data
-* Web (today)
-    * Data journalists (D3, HTML5) -- canvas/WebGL, SVG
-    * Data scientists (Python/Plotly, R/Shiny) -- images, data
-    * Scientists -- data/metadata, data/metadata
-
-# Common data formats
-
-* Downloads -- shapefiles, xlsx, geotiff
-* Mapping apps (google maps, mapbox, leaflet) -- PNG, GIF (raster)
-* Data APIs -- CSV, JSON, GeoJSON (vector)
-
 # Visualization & presentation
 
 * Browsers -- taking over the world of data visualization
@@ -155,7 +119,7 @@ And the key to finding the answer is knowing how to phrase the question for goog
 * bl.ocks.org -- automatically displays the code you put in a github "gist"
 * observablehq.com -- a better way to code -- login with your github account
 
-# Problem solving 
+# Problem solving
 
 * google.com -- ask your question here
 * stackoverflow.com -- technical questions answered (and rated)
@@ -168,6 +132,11 @@ And the key to finding the answer is knowing how to phrase the question for goog
 * Dash -- a Python framework for building web applications that Plot.ly
 * Shiny -- an R framework for creating visualization and interactive Web apps (Node.js, Bootstrap, D3.js)
 * D3.js -- the powerful JavaScript library for Web-based graphics that's under the hood of all the others
+
+# Reading
+
+* [Introduction to code](https://beta.observablehq.com/@mbostock/introduction-to-code) by Mike Bostock
+* [Introduction to data](https://beta.observablehq.com/@mbostock/introduction-to-data)
 
 # Demo
 
@@ -210,6 +179,3 @@ Make this work on observablehq
             html`<div id='myDiv'></div>`
 
     And, instead of the previous solution
-
-
-
