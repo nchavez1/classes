@@ -173,45 +173,45 @@ These are references for using observablehq.com
 
 Let's get the plot.ly original to work on observablehq.com...
 
-* convert the python to javascript
-
 1. Copy and paste the JavaScript for the demo: https://plot.ly/javascript/line-and-scatter/ into a cell in "observable.com" and "run" the code by pressing the right arrow at the top right of the cell.
 
-    * Error #1 points to `var` in the first line.
+        SyntaxError: Unexpected token
 
-            SyntaxError: Unexpected token
+    Problem: In observable, cells can be used for arithmetic, but blocks of code need to be enclosed by curly braces { and }. ([Reference](https://beta.observablehq.com/@mbostock/introduction-to-code))
 
-    Issue: In observable, blocks of code should be enclosed by curly braces { and }. ([Reference](https://beta.observablehq.com/@mbostock/introduction-to-code))
+2. Solution: Add a curly brace { at the beginning of the cell, and another } at the end, then run the code.
 
-2. Solution: Add a curly brace { at the beginning, and another } at the end, then run the code.
+        RuntimeError: Plotly is not defined
 
-    * Error: RuntimeError: Plotly is not defined
+    Problem: You need to tell observable how to find the plot.ly library.
 
-    Issue: You need to tell observable how to find the plot.ly library.
-
-3. Solution: create a new cell with the following line of code, then run your code again:
+3. Solution: create a new cell with the following line of code:
 
         Plotly = require("https://cdn.plot.ly/plotly-latest.min.js")
 
-    * Error: DOM element with id 'myDiv' exists on the page.
+    Then run the code...
 
-    Issue: `Plotly.newPlot('myDiv', data);` is trying to put the chart in an HTML `<div>` element called "mydiv". If you to back to this page (https://plot.ly/javascript/line-and-scatter/) and look in the "HTML" section, you'll see how it should look"
+        Error: No DOM element with id 'myDiv' exists on the page.
 
-4. Solution: Add one line right before the line in question, and change `'myDiv' to `div`.
+    Problem: `Plotly.newPlot('myDiv', data);` is trying to put the chart in an
+    HTML `<div>` element called "myDiv". If you looks at the gist,
+    https://gist.github.com/pbogden/2b8945eeebf48798c8ff6d0d7230710c, you'll see what it looks like in a complete HTML page...
 
-             const div = DOM.element('div');
-             div.width = width;
-             div.height = 450 * width / height;
-             Plotly.newPlot(div, data);
+        <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
 
-    Now run the code.
+4. Solution: Create a new cell with an html <div> element
 
-    * [Plot.ly default width/height (700px/450px)](https://plot.ly/javascript/reference/#layout-width) -- plot.ly docs
+        html`<div id="myDiv"></div>`
 
-5. Solution #2 to Error #2:
+    When you're done, "run" the code in this section, and you should see the chart.
 
-    Create a new HTML "block"
+5. You'll see a line that says "undefined" -- this is the return value from the cell that contains the javascript. If you want to display something else, then you can add one more line to the end of the JavaScript, such as...
 
-            html`<div id='myDiv'></div>`
+        return 'It worked!';
 
-    And, instead of the previous solution
+## Homework
+
+1. Create an observable notebook from any of the [plotly.js basic charts](https://plot.ly/javascript/basic-charts/).
+2. Experiment with the code and make a change of some kind.  Use the notebook to describe the change that you made.
+
+We'll review your result at the beginning of the next class.  If you have difficulty, ask questions in the UMBC discussion forum for the class.
