@@ -166,9 +166,13 @@ These are references for using observablehq.com
 
 # Demo #1
 
-Make this following plot.ly plot work on observablehq
+* https://plot.ly/javascript/line-and-scatter/ -- plot.ly original
+* https://gist.github.com/pbogden/2b8945eeebf48798c8ff6d0d7230710c -- gist.github.com
+* https://bl.ocks.org/pbogden/2b8945eeebf48798c8ff6d0d7230710c -- bl.ocks.org
+* https://bl.ocks.org/pbogden/raw/2b8945eeebf48798c8ff6d0d7230710c/ -- standalone web page
 
-* https://plot.ly/javascript/line-and-scatter/
+Let's get the plot.ly original to work on observablehq.com...
+
 * convert the python to javascript
 
 1. Copy and paste the JavaScript for the demo: https://plot.ly/javascript/line-and-scatter/ into a cell in "observable.com" and "run" the code by pressing the right arrow at the top right of the cell.
