@@ -116,7 +116,7 @@ This impacts the results of the search...
     * MDN is authoritative documentation for JavaScript
 
 For problem solving, stackoverflow becomes critically important, and
-you should look at rankings before you read. For example...
+you should look at rankings before you read. For example, in Python...
 
 * If you search for "remove an element from a python array"
     * Top item -- reworded request from python documentation: "how to remove an element from a list in Python"
@@ -134,10 +134,13 @@ you should look at rankings before you read. For example...
         * answer: 783 votes
         * views: 913K
     * These are much more likely to solve your problem
+
+In JavaScript...
+
 * If you search for "remove an element from a javascript list"
-    * Top link -- quote from some other website that says "JavaScript: remove an element from an array"
-    * Second link -- a list of stackoverflow links about removing elements from arrays
-    * Then you remember that in JavaScript, an array is an array, not a "list" so you try again...
+    * Top link -- quote from some website you've never heard of that says "JavaScript: remove an element from an array"
+    * Second link -- a list of stackoverflow links about removing elements from arrays. Both the question and the answer have thousands of votes.
+    * Then you remember that in JavaScript, an array is an "array", not a "list", so you try again...
 * If you search instead for "remove an element from a javascript array"
     * Top link -- stackoverflow.com: "How do I remove a particular element from an array in JavaScript?"
     * question: 6764 votes
@@ -158,7 +161,7 @@ you should look at rankings before you read. For example...
 * bl.ocks.org -- automatically displays the visualization and code in a github "gist" (we'll use it later in the course)
 * observablehq.com -- a better way to code -- login with your github account
 
-# Reading
+# Valuable reading
 
 These are references for using observablehq.com
 
@@ -167,7 +170,7 @@ These are references for using observablehq.com
 
 # Demo
 
-Let's learn a bit about Observable and Plot.ly by getting a Plot.ly demo to work inside an Observable notebook.
+Let's learn a bit about Observablehq.com and Plot.ly by getting a Plot.ly demo to work inside an Observable notebook.
 
 * https://plot.ly/javascript/line-and-scatter/ -- plot.ly demo
 * https://gist.github.com/pbogden/2b8945eeebf48798c8ff6d0d7230710c -- standalone code in gist.github.com
