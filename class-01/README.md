@@ -125,10 +125,10 @@ you should look at rankings before you read. For example...
         * question: 95 votes
         * answer: 134 votes
         * views: 319K
-    * Hmmmm. Then you remember that an array in Python is called a "list", so you try again...
+    * Hmmmm. That doesn't seem like a lot of votes for something so fundamental. Then you remember that an array in Python is called a "list", so you try again...
 * If you search for "remove an element from a python list"
     * Top item -- quote from a stackoverflow link
-    * Second item -- a list of stackoverflow links, each with much higher ratings
+    * Second item -- a list of stackoverflow links, each with much higher ratings than before
         * first stackoverflow link: "Difference between del, remove and pop on lists"
         * question: 551 votes
         * answer: 783 votes
@@ -137,6 +137,7 @@ you should look at rankings before you read. For example...
 * If you search for "remove an element from a javascript list"
     * Top link -- quote from some other website that says "JavaScript: remove an element from an array"
     * Second link -- a list of stackoverflow links about removing elements from arrays
+    * Then you remember that in JavaScript, an array is an array, not a "list" so you try again...
 * If you search instead for "remove an element from a javascript array"
     * Top link -- stackoverflow.com: "How do I remove a particular element from an array in JavaScript?"
     * question: 6764 votes
