@@ -205,13 +205,24 @@ Let's get the plot.ly original to work on observablehq.com...
 
     When you're done, "run" the code in this section, and you should see the chart.
 
-5. You'll see a line that says "undefined" -- this is the return value from the cell that contains the javascript. If you want to display something else, then you can add one more line to the end of the JavaScript, such as...
+5. You may notice that your chart seems squished compared to the original.  If you dig in the [plot.ly javascript reference](https://plot.ly/javascript/reference/), you'll see that plot.ly's default "width" and "height" are '700px' and '450px', respectively.  Observable's documentation (https://github.com/observablehq/stdlib) shows that "width" is part of the API and is the width (in "px") of the current page. Plot.ly is using this width, instead of the default width. So you reproduce the original dimensions by changing the plot.ly call to...
+
+      Plotly.newPlot('myDiv', data, {width: 700});
+
+6. Finally, you'll see a line that says "undefined". This isn't an error, but it's not pretty. It's actually the return value from the cell that contains the javascript. You can change this by adding one more line to the end of the JavaScript, such as...
 
         return 'It worked!';
 
+## References
+
+* [The final result](https://beta.observablehq.com/@pbogden/hello-world)
+* [plot.ly javascript reference](https://plot.ly/javascript/reference/)
+* [Observable standard library](https://github.com/observablehq/stdlib)
+
 ## Homework
 
-1. Create an observable notebook from any of the [plotly.js basic charts](https://plot.ly/javascript/basic-charts/).
-2. Experiment with the code and make a change of some kind.  Use the notebook to describe the change that you made.
+1. Create an observable notebook from any of the [plotly.js JavaScript examples](https://plot.ly/javascript/)
+
+2. Experiment with the code and make a change of some kind.  Use the notebook to describe your experience and the change that you made.
 
 We'll review your result at the beginning of the next class.  If you have difficulty, ask questions in the UMBC discussion forum for the class.
