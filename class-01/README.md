@@ -185,11 +185,11 @@ Let's get the plot.ly original to work on observablehq.com...
 
     Problem: You need to tell observable how to find the plot.ly library.
 
-3. Solution: create a new cell with the following line of code:
+3. Solution: create a new cell with the following line:
 
         Plotly = require("https://cdn.plot.ly/plotly-latest.min.js")
 
-    Then run the code...
+    Then run the code in your original cell...
 
         Error: No DOM element with id 'myDiv' exists on the page.
 
