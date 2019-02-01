@@ -164,14 +164,14 @@ These are references for using observablehq.com
 * [Introduction to code](https://beta.observablehq.com/@mbostock/introduction-to-code)
 * [Introduction to data](https://beta.observablehq.com/@mbostock/introduction-to-data)
 
-# Demo #1
+# Demo
 
-* https://plot.ly/javascript/line-and-scatter/ -- plot.ly original
-* https://gist.github.com/pbogden/2b8945eeebf48798c8ff6d0d7230710c -- gist.github.com
-* https://bl.ocks.org/pbogden/2b8945eeebf48798c8ff6d0d7230710c -- bl.ocks.org
+Let's learn a bit about Observable and Plot.ly by getting a Plot.ly demo to work inside an Observable notebook.
+
+* https://plot.ly/javascript/line-and-scatter/ -- plot.ly demo
+* https://gist.github.com/pbogden/2b8945eeebf48798c8ff6d0d7230710c -- standalone code in gist.github.com
+* https://bl.ocks.org/pbogden/2b8945eeebf48798c8ff6d0d7230710c -- the gist as displayed on bl.ocks.org
 * https://bl.ocks.org/pbogden/raw/2b8945eeebf48798c8ff6d0d7230710c/ -- standalone web page
-
-Let's get the plot.ly original to work on observablehq.com...
 
 1. Copy and paste the JavaScript for the demo: https://plot.ly/javascript/line-and-scatter/ into a cell in "observable.com" and "run" the code by pressing the right arrow at the top right of the cell.
 
@@ -194,28 +194,29 @@ Let's get the plot.ly original to work on observablehq.com...
         Error: No DOM element with id 'myDiv' exists on the page.
 
     Problem: `Plotly.newPlot('myDiv', data);` is trying to put the chart in an
-    HTML `<div>` element called "myDiv". If you looks at the gist,
-    https://gist.github.com/pbogden/2b8945eeebf48798c8ff6d0d7230710c, you'll see what it looks like in a complete HTML page...
+    HTML `<div>` element with the `id="myDiv"``. If you look at the gist,
+    https://gist.github.com/pbogden/2b8945eeebf48798c8ff6d0d7230710c, you'll see what it looks like in a standalone HTML page...
 
         <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
 
-4. Solution: Create a new cell with an html <div> element
+4. Solution: Create a new cell in your notebook with an html <div> element
 
         html`<div id="myDiv"></div>`
 
-    When you're done, "run" the code in this section, and you should see the chart.
+    When you're done, "run" the code in this html cell, and you should see the chart.
 
-5. You may notice that your chart seems squished compared to the original.  If you dig in the [plot.ly javascript reference](https://plot.ly/javascript/reference/), you'll see that plot.ly's default "width" and "height" are '700px' and '450px', respectively.  Observable's documentation (https://github.com/observablehq/stdlib) shows that "width" is part of the API and is the width (in "px") of the current page. Plot.ly is using this width, instead of the default width. So you reproduce the original dimensions by changing the plot.ly call to...
+5. You may notice that your chart seems squished compared to the original.  If you dig in the [plot.ly javascript reference](https://plot.ly/javascript/reference/), you'll see that plot.ly's default "width" and "height" are '700px' and '450px', respectively.  Observable's documentation (https://github.com/observablehq/stdlib) shows that "width" is part of the API, Plot.ly is using Observable's width, and it's default height. We can reproduce the original dimensions by setting plot.ly's width explicitly.  For example,
 
       Plotly.newPlot('myDiv', data, {width: 700});
 
-6. Finally, you'll see a line that says "undefined". This isn't an error, but it's not pretty. It's actually the return value from the cell that contains the javascript. You can change this by adding one more line to the end of the JavaScript, such as...
+6. Finally, you'll see a line that says "undefined". This is not an error, but it's a little disconcerting. It's actually the return value from the cell that contains the javascript. You can change this to something
+friendlier by adding one more line to the end of the JavaScript, such as...
 
         return 'It worked!';
 
 ## References
 
-* [The final result](https://beta.observablehq.com/@pbogden/hello-world)
+* [The final result in Observable](https://beta.observablehq.com/@pbogden/hello-world)
 * [plot.ly javascript reference](https://plot.ly/javascript/reference/)
 * [Observable standard library](https://github.com/observablehq/stdlib)
 
