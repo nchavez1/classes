@@ -17,7 +17,7 @@ Browse these examples to get an idea of what can be done with modern Web technol
 * 3D dynamic maps
     * [GeoJSON in Three.js](https://beta.observablehq.com/@mbostock/geojson-in-three-js) -- Dynamic 3-D geospatial demo
 * Maps that use real-time data
-    * [USGS data on a rotating glove](https://beta.observablehq.com/@jashkenas/quakespotter-0-1) -- observable demo
+    * [USGS data on a rotating globe](https://beta.observablehq.com/@jashkenas/quakespotter-0-1) -- observable demo
     * [USGS data source](https://earthquake.usgs.gov/earthquakes/feed/)
     * [USGS GeoJSON feed](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php)
 * Machine learning with raster data (we won't cover it in this course, but it can be done)
