@@ -11,7 +11,7 @@ What's going on here, and how does it compare to "matplotlib"? Plot.ly is...
 
 * Manipulating data on the fly (array manipulations, random number generation)
 * Web capable (JavaScript and Python APIs are closely related in Plot.ly, matplotlib needs Jupyter server to work in a browser)
-* Interactive (matplotlib 3 is getting "events")
+* Interactive (matplotlib 3 has "events" too ([reference](https://matplotlib.org/users/event_handling.html), but only on the desktop, unless it's in a Jupyter notebook)
 * Able to integrate slippy maps (matplotlib requires Jupyter (https://github.com/mapbox/mapboxgl-jupyter))
 * Capable of 3D charts and graphs (matplotlib too)
 * Customizable (within limits) (matplotlib too)
