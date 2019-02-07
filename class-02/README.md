@@ -9,7 +9,7 @@ This will introduce 3 features/techniques...
 
     * data manipulation (with arrays/lists)
     * customizability
-    * Web accessibility
+    * D3
 
 * [Python scatterplot demo](https://plot.ly/python/line-and-scatter/#style-scatter-plots) -- plot.ly
 
