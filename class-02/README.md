@@ -72,6 +72,18 @@ Issues (looking under the hood a little deeper)...
     * This is actually pretty easy, as we'll see.
 * BTW, R has some nice options, but we won't be using R this semester.
 
+### Introduction to Data
+
+* Reading: [Introduction to Data](https://beta.observablehq.com/@mbostock/introduction-to-data)
+
+### Earthquakes
+
+* Add them to your Observable notebook
+
+        url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
+
+        quakes = (await fetch(url)).json()
+
 ### Chloropleth maps
 
 We've seen scatterplots (dots), now let's look at maps...
@@ -106,3 +118,10 @@ Looking ahead: slippy maps, and dots on maps.
 ### Optional reading
 
 * [Introduction to D3](https://bost.ocks.org/mike/d3/workshop/) -- A nice presentation, although a bit old (2012)
+
+## Class #2 assignment
+
+Create an Observable notebook with a scatterplot of USGS earthquakes.  
+That's wide open assignment, since there are any number of things you could plot. 
+Consider filtering your results somehow to see if you can find an interesting property of the data.
+Include a description of anything you find.
