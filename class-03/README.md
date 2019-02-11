@@ -56,5 +56,7 @@ The data source for OpenLayers earthquake example
 * [Leaflet](https://leafletjs.com/)
     * [Leaflet | Mapbox](https://docs.mapbox.com/help/glossary/leaflet/)
 * [OpenLayers](https://openlayers.org/)
-    * [earthquake heatmap](https://openlayers.org/en/v4.6.5/examples/heatmap-earthquakes.html)
-    * [D3 and stamen](https://openlayers.org/en/latest/examples/d3.html)
+    * [Download](https://openlayers.org/download/) -- several ways of getting the code
+    * [earthquake heatmap](https://openlayers.org/en/v4.6.5/examples/heatmap-earthquakes.html) -- official example
+    * [D3 and stamen](https://openlayers.org/en/latest/examples/d3.html) -- official example
+    * [ol/layer/Heatmap](https://openlayers.org/en/v5.3.0/apidoc/module-ol_layer_Heatmap.html) -- API docs for v5.3.0
