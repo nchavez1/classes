@@ -16,8 +16,8 @@
 
 * [Observable Leaflet](https://beta.observablehq.com/@tmcw/leaflet) -- Observable notebook by Tom MacWright
     * Nice introduction to Leaflet in Observable
-    * Add a polygon to Leaflet
-    * Add a heatmap to Leaflet
+    * Shows how to add a polygon to Leaflet (vector data)
+    * Shows how to add a heatmap to Leaflet
 * [Using OpenLayers](https://beta.observablehq.com/@tmcw/using-openlayers)
     * [Hello, OpenLayers!](https://beta.observablehq.com/@mbostock/hello-openlayers)
     * [Hello, OpenLayers Select!](https://beta.observablehq.com/@mbostock/hello-openlayers-select)
