@@ -31,6 +31,8 @@ The steps...
 5. set the dimension
 6. set two cross hairs that intersect the origin (no ticks or labels on the cross hairs and no axes on the edges)
 
+[The JavaScript version](https://beta.observablehq.com/@pbogden/the-javascript-version)
+
 #### References
 
 * [d3-array](https://github.com/d3/d3-array) -- D3 API docs
