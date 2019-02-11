@@ -12,17 +12,6 @@
 
 * Compare Plotly and D3.js examples
 
-## Slippy maps (Leaflet, Openlayers, OpenStreetmap)
-
-* [observable openlayers](https://beta.observablehq.com/@tmcw/using-openlayers)
-    * [box selection](https://beta.observablehq.com/@mbostock/hello-openlayers-box-selection)
-* [observable leaflet](https://beta.observablehq.com/@tmcw/leaflet)
-
-## Earthquakes on a map
-
-* [openlayers and d3 and stamen](https://openlayers.org/en/latest/examples/d3.html)
-* [earthquake heatmap](https://openlayers.org/en/v4.6.5/examples/heatmap-earthquakes.html)
-
 ## Slippy maps
 
 * [Observable Leaflet](https://beta.observablehq.com/@tmcw/leaflet) -- Observable notebook by Tom MacWright
