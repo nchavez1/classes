@@ -6,7 +6,8 @@
 
 ## From Observable to the Web
 
-* We didn't really get to this last time (gist.github.com & bl.ocks.org)
+* We only touched on this last time (gist.github.com & bl.ocks.org)
+* Demonstrate how to get homework assignments into a gist and served from bl.ocks.org
 
 ## Chloropleth maps
 
