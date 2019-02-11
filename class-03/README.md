@@ -1,6 +1,8 @@
 
 # Class #3
 
+* [demo](http://localhost/~pbogden/classes/class-03/)
+
 ## From Observable to the Web
 
 * We didn't really get to this last time (gist.github.com & bl.ocks.org)
