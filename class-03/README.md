@@ -1,7 +1,8 @@
 
 # Class #3
 
-* [demo](http://localhost/~pbogden/classes/class-03/)
+* [demo (my map)](http://localhost/~pbogden/classes/class-03/)
+* [demo (earthquake heatmap)](http://localhost/~pbogden/classes/class-03/olheat.html)
 
 ## From Observable to the Web
 
