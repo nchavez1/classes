@@ -41,8 +41,10 @@
         // 2012_Earthquakes_Mag5.kml stores the magnitude of each earthquake in a
         // standards-violating <magnitude> tag in each Placemark.  We extract it from
         // the Placemark's name instead.
+        console.log(event.feature)
         var name = event.feature.get('name');
         var magnitude = parseFloat(name.substr(2));
+        console.log('name:' + name + ', magnitude:', magnitude)
         event.feature.set('weight', magnitude - 5);
       });
 
@@ -61,6 +63,22 @@
         })
       });
 
+      // My code -- using moveend event
+      map.on('moveend', onMoveEnd);
+      function onMoveEnd() {
+        var e = map.getView().calculateExtent()
+        console.log('moveend', e)
+      }
+
+      // Another way of doing it with property change
+      // Note: This seems to get all changes for zoom
+      map.getView().on('propertychange', function(e) {
+        switch (e.key) {
+           case 'resolution':
+             console.log(e.oldValue);
+             break;
+        }
+     });
 
       blur.addEventListener('input', function() {
         vector.setBlur(parseInt(blur.value, 10));
