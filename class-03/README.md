@@ -1,5 +1,5 @@
 
-# Class #2
+# Class #3
 
 ## Slippy maps
 
