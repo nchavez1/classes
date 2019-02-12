@@ -84,6 +84,13 @@
         switch (e.key) {
            case 'resolution':
              console.log(e.oldValue);
+             var extent = map.getView().calculateExtent()
+             var features = [];
+             vector.forEachFeatureInExtent(extent, function(feature) {
+               features.push(feature);
+             });
+             console.log('# of features:', features.length)
+             // Reference: https://openlayers.org/en/latest/apidoc/module-ol_source_Vector-VectorSource.html#forEachFeatureInExtent
              break;
         }
      });
