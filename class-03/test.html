@@ -86,11 +86,14 @@
              console.log(e.oldValue);
              var extent = map.getView().calculateExtent()
              var features = [];
-             vector.forEachFeatureInExtent(extent, function(feature) {
+             vector.getSource().forEachFeatureInExtent(extent, function(feature) {
                features.push(feature);
              });
              console.log('# of features:', features.length)
-             // Reference: https://openlayers.org/en/latest/apidoc/module-ol_source_Vector-VectorSource.html#forEachFeatureInExtent
+             // References:
+            //      View:  This is the object to act upon to change the center, resolution, and rotation of the map.
+             //  view -- https://openlayers.org/en/latest/apidoc/module-ol_View-View.html
+             //  vector source -- https://openlayers.org/en/latest/apidoc/module-ol_source_Vector-VectorSource.html#forEachFeatureInExtent
              break;
         }
      });

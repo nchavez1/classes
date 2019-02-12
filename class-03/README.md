@@ -37,7 +37,7 @@ Compare the SVG (vector) and canvas (raster) examples. Add the following to the 
 
 * Demonstrate how to get homework assignments into a gist and served from bl.ocks.org
 
-#### References: 
+#### References:
 
 * [HTML examples](https://www.w3schools.com/html/html_examples.asp) -- W3schools
     * [Basic document](https://www.w3schools.com/html/tryit.asp?filename=tryhtml_basic_document)
@@ -103,3 +103,12 @@ The data source for OpenLayers earthquake example
     * [earthquake heatmap](https://openlayers.org/en/v4.6.5/examples/heatmap-earthquakes.html) -- official example
     * [D3 and stamen](https://openlayers.org/en/latest/examples/d3.html) -- official example
     * [ol/layer/Heatmap](https://openlayers.org/en/v5.3.0/apidoc/module-ol_layer_Heatmap.html) -- API docs for v5.3.0
+    * [contains](https://openlayers.org/en/latest/apidoc/module-ol_format_filter_Contains-Contains.html)
+* [D3.js API]
+    * [d3.geoContains()](https://github.com/d3/d3-geo/blob/master/README.md#geoContains)
+    * [d3.polygonContains()](https://github.com/d3/d3-geo/blob/master/README.md#geoContains)
+
+## Leaflet
+
+* [Using GeoJSON with Leaflet](https://leafletjs.com/examples/geojson/) -- Leaflet docs
+    * [map.getBounds()](https://leafletjs.com/reference-1.4.0.html#map-getbounds)
