@@ -7,6 +7,25 @@
 ## From Observable to the Web
 
 * We only touched on this last time (gist.github.com & bl.ocks.org)
+
+#### The Web
+
+* [HTML Examples](https://www.w3schools.com/html/html_examples.asp) -- W3Schools
+    * [HTML Document](https://www.w3schools.com/html/tryit.asp?filename=tryhtml_basic_document)
+    * [HTML `id` attribute](https://www.w3schools.com/html/tryit.asp?filename=tryhtml_id_css)
+    * [HTML scripts](https://www.w3schools.com/html/tryit.asp?filename=tryhtml_script)
+    * [HTML canvas](https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_canvas_tut_path2)
+    * [HTML SVG](https://www.w3schools.com/html/tryit.asp?filename=tryhtml_svg_circle)
+
+Compare the SVG (vector) and canvas (raster) examples. Add the following to the canvas demo...
+
+    ctx.fillStyle='yellow'
+    ctx.fill();
+    ctx.strokeStyle="green";
+    ctx.lineWidth=4;
+
+Serving a web page
+
 * Demonstrate how to get homework assignments into a gist and served from bl.ocks.org
 
 #### References: 
