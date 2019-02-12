@@ -9,6 +9,21 @@
 * We only touched on this last time (gist.github.com & bl.ocks.org)
 * Demonstrate how to get homework assignments into a gist and served from bl.ocks.org
 
+#### References: 
+
+* [HTML examples](https://www.w3schools.com/html/html_examples.asp) -- W3schools
+    * [Basic document](https://www.w3schools.com/html/tryit.asp?filename=tryhtml_basic_document)
+* [Introduction to HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started) -- MDN
+    * [The head metadata in HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML)
+    * [Example page with CSS and JavaScript](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML#Active_learning_applying_CSS_and_JavaScript_to_a_page)
+* [Downloading and Embedding Notebooks](https://beta.observablehq.com/@jashkenas/downloading-and-embedding-notebooks) -- Observable
+    * [Standard Library](https://beta.observablehq.com/@mbostock/standard-library)
+
+#### Advanced references:
+
+* [Observable standard library](https://github.com/observablehq/stdlib)
+* [Observable runtime]((https://github.com/observablehq/runtime)
+
 ## Chloropleth maps
 
 * Compare Plotly and D3.js examples
@@ -51,7 +66,6 @@ The data source for OpenLayers earthquake example
     * Shows how to add a heatmap to Leaflet
 * [Using OpenLayers](https://beta.observablehq.com/@tmcw/using-openlayers)
     * [Hello, OpenLayers!](https://beta.observablehq.com/@mbostock/hello-openlayers)
-    * [Hello, OpenLayers Select!](https://beta.observablehq.com/@mbostock/hello-openlayers-select)
     * [Hello, OpenLayers Select!](https://beta.observablehq.com/@mbostock/hello-openlayers-select)
     * [Hello, OpenLayers Box Selection!](https://beta.observablehq.com/@mbostock/hello-openlayers-box-selection)
 * [Leaflet](https://leafletjs.com/)
