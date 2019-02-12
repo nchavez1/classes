@@ -64,14 +64,22 @@
       });
 
       // My code -- using moveend event
+      // EPSG:4326 -- Horizontal component WGS 84, which is a 3D system (Lat/Lon).
+      //              Used by the GPS satellite navigation system and
+      //              for NATO military geodetic surveying. (Lat/Lon)
+      // EPSG:3857 -- WGS 84 Pseudo-Mercator (meters). Not a recognised geodetic system.
+      //              Errors of up to 21 km may arise because it uses
+      //              spherical development of ellipsoidal coordinates.
       map.on('moveend', onMoveEnd);
       function onMoveEnd() {
         var e = map.getView().calculateExtent()
-        console.log('moveend', e)
+        var glbox = map.getView().calculateExtent(map.getSize()); // Returns ???
+        var box = ol.proj.transformExtent(glbox,'EPSG:3857','EPSG:4326'); // Returns Lat/Lon
+        console.log('moveend', e, glbox, box)
       }
 
-      // Another way of doing it with property change
-      // Note: This seems to get all changes for zoom
+      // Another way of event detection with "propertychange"
+      // Note: This seems to get all changes during zoom
       map.getView().on('propertychange', function(e) {
         switch (e.key) {
            case 'resolution':
