@@ -16,6 +16,10 @@
     * [HTML scripts](https://www.w3schools.com/html/tryit.asp?filename=tryhtml_script)
     * [HTML canvas](https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_canvas_tut_path2)
     * [HTML SVG](https://www.w3schools.com/html/tryit.asp?filename=tryhtml_svg_circle)
+* [HTML validator](https://validator.w3.org/nu/#textarea)
+    * You can omit the <html>, <head> and <body> tags, but beware.
+* [HTML5 Boilerplate](https://html5boilerplate.com/)
+    * An authoritative resource for best practices -- way beyond the scope of this course.
 
 Compare the SVG (vector) and canvas (raster) examples. Add the following to the canvas demo...
 
@@ -24,7 +28,12 @@ Compare the SVG (vector) and canvas (raster) examples. Add the following to the 
     ctx.strokeStyle="green";
     ctx.lineWidth=4;
 
-Serving a web page
+#### HTML Bar Chart
+
+* [Let's make a bar chart](https://bost.ocks.org/mike/bar/)
+    * [Coding the chart manually](https://bost.ocks.org/mike/bar/#manual)
+
+#### Serving a web page
 
 * Demonstrate how to get homework assignments into a gist and served from bl.ocks.org
 
