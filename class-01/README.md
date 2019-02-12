@@ -1,181 +1,233 @@
 # Class #1
 
-## Motivation
+Our goal for the course: visualize and present geospatial and environmental data using the modern, data-rich Web.
 
-* [Unemployment rate by county](https://beta.observablehq.com/@mbostock/d3-quantile-choropleth)
-* [Obama and Romney](https://archive.nytimes.com/www.nytimes.com/interactive/2012/11/11/sunday-review/counties-moving.html)
-* [Chicago killings](https://archive.nytimes.com/www.nytimes.com/interactive/2013/01/02/us/chicago-killings.html)
-* [Leaflet](https://beta.observablehq.com/@tmcw/leaflet) -- slippy maps with data
+## Examples
+
+Browse these examples to get an idea of what can be done with modern Web technologies.
+
+* Data Journalism -- maps that tell a story
+    * [Unemployment rate by county](https://beta.observablehq.com/@mbostock/d3-quantile-choropleth)
+    * [Obama and Romney](https://archive.nytimes.com/www.nytimes.com/interactive/2012/11/11/sunday-review/counties-moving.html)
+    * [Chicago killings](https://archive.nytimes.com/www.nytimes.com/interactive/2013/01/02/us/chicago-killings.html)
+* Slippy maps
+    * [Leaflet](https://beta.observablehq.com/@tmcw/leaflet) -- slippy maps with data
     * [OpenStreetMap project](https://www.openstreetmap.org/#map=4/38.01/-95.84) (their website)
     * [OpenStreetMap description](https://www.openstreetmap.org/#map=4/38.01/-95.84) (wikipedia)
-* [GeoJSON in Three.js](https://beta.observablehq.com/@mbostock/geojson-in-three-js) -- Dynamic 3-D geospatial demo
-* Earthquakes
-    * [USGS data on a rotating glove](https://beta.observablehq.com/@jashkenas/quakespotter-0-1) -- observable demo
+* 3D dynamic maps
+    * [GeoJSON in Three.js](https://beta.observablehq.com/@mbostock/geojson-in-three-js) -- Dynamic 3-D geospatial demo
+* Maps that use real-time data
+    * [USGS data on a rotating globe](https://beta.observablehq.com/@jashkenas/quakespotter-0-1) -- observable demo
     * [USGS data source](https://earthquake.usgs.gov/earthquakes/feed/)
     * [USGS GeoJSON feed](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php)
-    * [Interactive time-space filter on a map](https://pbogden.com/shake/)
-* The sky's the limit (not in this course, but maybe the next one)
+* Machine learning with raster data (we won't cover it in this course, but it can be done)
     * [Machine learning in a browser](https://beta.observablehq.com/@mbostock/lets-try-t-sne) (image classification)
     * [Tensorflow demo](https://github.com/tensorflow/tfjs-examples/tree/master/tsne-mnist-canvas)
     * [Tensorflow project](https://www.tensorflow.org/)
-* [Mike Bostock](https://bost.ocks.org/mike/) (Creator of D3)
-* [Breakout](https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript) (in JavaScript)
 
-## Evolution of GIS and the Web
+## Some history
 
- * Desktop GIS
+GIS and the Web have been evolving toward each other...
+
+ * Desktop
+    * Desktop applications have a history of geospatial analysis and visualization extending back decades
     * Analysts (Esri, QGIS) -- raster (geotiff), vector (shapefile)
     * Software engineers (C, C++, SQL) -- GDAL, OGR
     * Scientists (Matlab, Fortran) -- matrix, vector
-* Web (yesterday)
-    * Analysts (MSWord/Google docs, Excel/Tableau) -- images (PNG, GIF), xlsx
-    * Graphic artists (Photoshop, Illustrator)  -- images, SVG
+* Early Web
+    * Since the 90's, HTML and browsers have linked images and content. The content comes from a wide range of specialists using a comparably wide range of tools and data sources, but relatively limited Web-accessible formats.
+    * Analysts/Journalists (MSWord/Excel) -- text, images (PNG), xlsx downloads
+    * Graphic artists (Photoshop, Illustrator) -- images (PNG, JPEG), vector (SVG)
     * Web designers (HTML, CSS) -- images (PNG, GIF), SVG
-    * Web developers (JavaScript, HTML5) - canvas, XML
-    * Scientists (Python/Matplotlib, R) -- images, data
-* Web (today)
-    * Data journalists (D3, HTML5) -- canvas/WebGL, SVG
-    * Data scientists (Python/Plotly, R/Shiny) -- images, data
-    * Scientists -- data/metadata, data/metadata
+    * Web developers (limited JavaScript) - HTML, CSS, XML
+    * Scientists and engineers (Python, R, Matlab, Esri, QGIS, etc.) -- PNG, JPEG
+* Modern data-rich Web -- In the last decade...
+    * HTML5 and Web standards have brought analysis and visualization into the browser.
+    * Browsers have become ubiquitous and standardized across desktops and mobile devices.
+    * Open source software has become a driver for innovation and new business models, in many cases replacing proprietary software applications.
+    * Two data disciplines have become umbrellas for what used to be a wide range of specialties:
+        * Data visualization (journalism and communications) -- (JavaScript, D3) -- canvas, SVG, WebGL
+        * Data science (all kind of science and analysis) -- (Python, R) -- raster (PNG, GeoTIFF, GIF), vector and metadata (JSON, GeoJSON)
+    * Two programming languages/environments have become dominant for analysis: Python & R
+        * Python and R run only on the desktop or on servers. They cannot run in browsers (yet?).
+        * JavaScript connects Python and R to the browser (via extensions and frameworks such as Plot.ly, Shiny)
+    * One programming languages has become dominant for visualization: JavaScript
+        * JavaScript is entering the competition for analysis.
+        * JavaScript is the language of the browser and the Web, and is migrating to desktops and servers (Node.js)
+    * As of 2019, each has strengths and weaknesses. We'll learn about their weaknesses and exploit their strengths, and use the best available tools to achieve our goal.
+
+## We'll code
+
+We'll create dynamic, interactive, Web-based visualizations that work in all modern browsers.
+We'll learn from examples that range from standard charts and graphs to stunning, data-rich works of art.
+And we'll use cutting-edge tools for on-line collaboration and problem solving.
+We need code, because that's the only way to take advantage of the APIs, software libraries
+and tools that power the modern, data-rich Web.
+
+We'll use JavaScript, because that's the only language that runs in a browser. But there's
+no expectation that you already know JavaScript, or any other Web technology such as HTML or CSS.
+You will learn some of that along the way, but just enough to achieve our goal.
+
+The expectation is that you know some Python, or the equivalent. If you know another scriptable
+language/environment such as R or Matlab, you should be okay. And if you know how to code in a powerful,
+low-level, compiled language such as C or C++, then you'll be fine.  
+
+We'll show how JavaScript and Python relate and interact. Each language has its strengths.
+We'll highlight their similarities, and de-emphasize their differences as much as possible. You don't
+have to choose one over the other. It's possible (and advantageous) to have both in your toolbelt.
+
+* Optional reading: [A better way to code](https://medium.com/@mbostock/a-better-way-to-code-2b1d2876a3a0) by Mike Bostock
 
 ## Common data formats
 
-* Downloads -- shapefiles, xlsx, geotiff
-* Mapping apps (google maps, mapbox, leaflet) -- PNG, GIF (raster)
-* Data APIs -- CSV, JSON, GeoJSON (vector)
+* For download to desktop applications -- shapefiles, xlsx, geotiff
+* For Web mapping (google maps, mapbox, leaflet) -- PNG (raster)
+* For data APIs -- CSV, JSON, GeoJSON (vector)
 
-## Problem-solving in Python, JavaScript, etc.
+## Problem-solving in Python and JavaScript
 
-"top programming languages"...
+Whether you program in Python, Java, JavaScript or some other language, Google is your friend for problem solving.
+The old days: if you wanted to do something, you would use trial and error, look in in a book, or ask a colleague.
+Today: the skill lies in knowing how to "ask a question" in a search engine, and quickly sift results to find the best answer.
 
-* top link on google -- JavaScript, Python, Java, C/C++, PHP, Swift, C#, Ruby
-* [tiobe index](https://www.tiobe.com/tiobe-index/) -- Java, C, Python, C++, VB/.NET, JavaScript, C#
-* "programming language jobs" -- Java, Python, JavaScript, C++, C#, PHP, Perl
-* "programming languages data science" -- R, Python, Java, Scala, SQL, Julia
+For JavaScript questions, you shouldn't need to go beyond one of the following 3 sites...
 
-Some geospatial considerations
+* w3schools -- https://www.w3schools.com/
+* stackoverflow -- https://stackoverflow.com/
+* MDN -- https://developer.mozilla.org/
 
-* Web applications
-    * various languages and platform-specific implentations on the back end
-    * platform-specific JavaScript on the front end (thanks to HTML5 that's built into modern browsers)
-    * increasing number of data and mapping resources are available on the Web with JavaScript APIs
-* geospatial applications and libraries (for analysts)
-    * QGis and other desktop applications -- often with platform-specific graphics
-    * R -- platform-specific scriptable application library with platform-independent (JavaScript) graphics
-    * Python -- scriptable language with both platform-specific and platform-independent (JavaScript) graphics
-* geospatial software (for developers who have heavy-duty number crunching requirements)
-    * GDAL & OGR written in C++ (under the hood for many commercial geospatial applications)
-    * Python (language) has many data-oriented libaries with Python bindings to the C++ API
-    * [Plot.ly](https://plot.ly/python/) Python library with platform-independent graphics (JavaScript) on the front end
+For Python, you'll use w3schools, stackoverflow, and https://docs.python.org instead of MDN.
 
-Whether you program in Python, Java, JavaScript or some other language, google is your friend.
-In the old days: you either remembered syntax, looked in a language reference book, or asked a colleague.
-Today: it's still good to remember syntax, but the real skill is knowing how to quickly "find" the answer.
-And the key to finding the answer is knowing how to phrase the question for google and filter the results.
+For example, all languages have arrays, but different languages call them different things.
+This impacts the results of the search...
 
 * If you search for "python array"
     * Top link -- W3Schools
-    * First page -- Stackoverflow
-* If you search for "JavaScript array"
+    * Fourth link -- https://docs.python.org (arrays are a python module, not a fundamental data structure)
+    * MDN and stackoverflow don't show up on the first page
+    * You quickly realize that the fundamental data structure in Python is called a "list", not an "array"
+* If you search for "python list"
     * Top link -- W3Schools
-    * First page -- MDN (Mozilla Development Network)
-* If you search for "remove an element from an list python"
-    * Top link -- quote from Quora.com
-    * Second link -- a list of stackoverflow links
+    * Second link -- python documentation (https://docs.python.org)
+    * MDN and stackoverflow still don't show up on the first page
+* If you search for "javascript array"
+    * Top link -- W3Schools
+    * Second link -- MDN (Mozilla Development Network)
+    * MDN is authoritative documentation for JavaScript
+
+For problem solving, stackoverflow becomes critically important, and
+you should look at rankings before you read. For example, in Python...
+
+* If you search for "remove an element from a python array"
+    * Top item -- reworded request from python documentation: "how to remove an element from a list in Python"
+    * Second item -- a list of stackoverflow links. Look at the ratings before you look at the answer
         * "how to remove a specific element from an array using python"
         * question: 95 votes
         * answer: 134 votes
         * views: 319K
-    * You learn that in Python, an array is a "list"
-* If you search for "remove an element from a list python"
-    * Top link -- quote from stackoverflow.com
-    * Second link -- a list of stackoverflow links
-        * "how to remove a specific element from an array using python"
-        * question: 95 votes
-        * answer: 134 votes
-        * views: 319K
-    * You learn that in Python, an array is a "list"
-* If you search for "remove an element from a list python"
-    * Top link -- quote from stackoverflow.com
-    * Second link -- a list of stackoverflow links
+    * Hmmmm. That doesn't seem like a lot of votes for something so fundamental. Then you remember that an array in Python is called a "list", so you try again...
+* If you search for "remove an element from a python list"
+    * Top item -- quote from a stackoverflow link
+    * Second item -- a list of stackoverflow links, each with much higher ratings than before
+        * first stackoverflow link: "Difference between del, remove and pop on lists"
+        * question: 551 votes
+        * answer: 783 votes
+        * views: 913K
+    * These are much more likely to solve your problem
 
-# Visualization & presentation
+In JavaScript...
 
-* Browsers -- taking over the world of data visualization
-    * The developer console...
-    * Interactive Web apps can do many of the things that use to require desktop applications
-    * Thanks to open standards: HTML5, JSON and GPUs
-* Code vs Desktop application
-    * Python, R, JavaScript, etc.
-    * ArcGIS, QGIS, etc.
-* Data manipulation, analysis
-    * Python -- list, dict
-    * R -- vector, list
-    * JavaScript -- array, object
+* If you search for "remove an element from a javascript list"
+    * Top link -- quote from some website you've never heard of that says "JavaScript: remove an element from an array"
+    * Second link -- a list of stackoverflow links about removing elements from arrays. Both the question and the answer have thousands of votes.
+    * Then you remember that in JavaScript, an array is an "array", not a "list", so you try again...
+* If you search instead for "remove an element from a javascript array"
+    * Top link -- stackoverflow.com: "How do I remove a particular element from an array in JavaScript?"
+    * question: 6764 votes
+    * answer: 9751 votes
+    * views: 5+ million
+    * With rankings this high, you'll have a nice and concise answer with one or more example(s)
 
-# Services
-
-* github -- software repository with version control -- create an account
-* bl.ocks.org -- automatically displays the code you put in a github "gist"
-* observablehq.com -- a better way to code -- login with your github account
-
-# Problem solving
-
-* google.com -- ask your question here
-* stackoverflow.com -- technical questions answered (and rated)
-* developer.mozilla.org -- web docs
-* w3schools.com -- basic web docs
-
-# Graphics packages/libraries
+# Some visualization packages/libraries
 
 * plot.ly -- a Python/R/JavaScript plotting package
-* Dash -- a Python framework for building web applications that Plot.ly
-* Shiny -- an R framework for creating visualization and interactive Web apps (Node.js, Bootstrap, D3.js)
-* D3.js -- the powerful JavaScript library for Web-based graphics that's under the hood of all the others
+* dash -- a Python Web framework for building Web applications that use Plot.ly
+* shiny -- R's framework for Web applications, written in JavaScript (Node.js, Bootstrap, D3.js)
+* D3.js -- the powerful JavaScript library for Web-based data visualization (it's under the hood of all the others)
 
-# Reading
+# Our tools
 
-* [Introduction to code](https://beta.observablehq.com/@mbostock/introduction-to-code) by Mike Bostock
+* github -- software repository with version control -- create an account
+* bl.ocks.org -- automatically displays the visualization and code in a github "gist" (we'll use it later in the course)
+* observablehq.com -- a better way to code -- login with your github account
+
+# Valuable reading
+
+These are references for using observablehq.com
+
+* [Introduction to code](https://beta.observablehq.com/@mbostock/introduction-to-code)
 * [Introduction to data](https://beta.observablehq.com/@mbostock/introduction-to-data)
 
 # Demo
 
-Make this work on observablehq
+Let's learn a bit about Observablehq.com and Plot.ly by getting a Plot.ly demo to work inside an Observable notebook.
 
-* https://plot.ly/python/line-and-scatter/
-* convert the python to javascript
+* https://plot.ly/javascript/line-and-scatter/ -- plot.ly demo
+* https://gist.github.com/pbogden/2b8945eeebf48798c8ff6d0d7230710c -- standalone code in gist.github.com
+* https://bl.ocks.org/pbogden/2b8945eeebf48798c8ff6d0d7230710c -- the gist as displayed on bl.ocks.org
+* https://bl.ocks.org/pbogden/raw/2b8945eeebf48798c8ff6d0d7230710c/ -- standalone web page
 
-1. Add plot.ly library
+1. Copy and paste the JavaScript for the demo: https://plot.ly/javascript/line-and-scatter/ into a cell in "observable.com" and "run" the code by pressing the right arrow at the top right of the cell.
+
+        SyntaxError: Unexpected token
+
+    Problem: In observable, cells can be used for arithmetic, but blocks of code need to be enclosed by curly braces { and }. ([Reference](https://beta.observablehq.com/@mbostock/introduction-to-code))
+
+2. Solution: Add a curly brace { at the beginning of the cell, and another } at the end, then run the code.
+
+        RuntimeError: Plotly is not defined
+
+    Problem: You need to tell observable how to find the plot.ly library.
+
+3. Solution: create a new cell with the following line:
 
         Plotly = require("https://cdn.plot.ly/plotly-latest.min.js")
 
-2. Copy and paste the JavaScript demo: https://plot.ly/javascript/line-and-scatter/
+    Then run the code in your original cell...
 
-    * Error #1 -- pointing to `var` in the first line.
+        Error: No DOM element with id 'myDiv' exists on the page.
 
-            SyntaxError: Unexpected token
+    Problem: `Plotly.newPlot('myDiv', data);` is trying to put the chart in an
+    HTML `<div>` element with the `id="myDiv"``. If you look at the gist,
+    https://gist.github.com/pbogden/2b8945eeebf48798c8ff6d0d7230710c, you'll see what it looks like in a standalone HTML page...
 
-3. Solution: Add curly brackets to the entire "block" of code
+        <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
 
-    * Error #2 -- pointing to `Plotly.newPlot('myDiv', data);`
+4. Solution: Create a new cell in your notebook with an html <div> element
 
-            Error: No DOM element with id 'myDiv' exists on the page.
+        html`<div id="myDiv"></div>`
 
-4. Solution: Add one line right before the line in question, and change `'myDiv' to `div`.
+    When you're done, "run" the code in this html cell, and you should see the chart.
 
-             const div = DOM.element('div');
-             div.width = width;
-             div.height = 450 * width / height;
-             Plotly.newPlot(div, data);
+5. You may notice that your chart seems squished compared to the original.  If you dig in the [plot.ly javascript reference](https://plot.ly/javascript/reference/), you'll see that plot.ly's default "width" and "height" are '700px' and '450px', respectively.  Observable's documentation (https://github.com/observablehq/stdlib) shows that "width" is part of the API, Plot.ly is using Observable's width, and it's default height. We can reproduce the original dimensions by setting plot.ly's width explicitly.  For example,
 
-    Now run the code.
+      Plotly.newPlot('myDiv', data, {width: 700});
 
-    * [Plot.ly default width/height (700px/450px)](https://plot.ly/javascript/reference/#layout-width) -- plot.ly docs
+6. Finally, you'll see a line that says "undefined". This is not an error, but it's a little disconcerting. It's actually the return value from the cell that contains the javascript. You can change this to something
+friendlier by adding one more line to the end of the JavaScript, such as...
 
-5. Solution #2 to Error #2:
+        return 'It worked!';
 
-    Create a new HTML "block"
+## References
 
-            html`<div id='myDiv'></div>`
+* [The final result in Observable](https://beta.observablehq.com/@pbogden/hello-world)
+* [plot.ly javascript reference](https://plot.ly/javascript/reference/)
+* [Observable standard library](https://github.com/observablehq/stdlib)
 
-    And, instead of the previous solution
+## Homework
+
+1. Create an observable notebook from any of the [plotly.js JavaScript examples](https://plot.ly/javascript/)
+
+2. Experiment with the code and make a change of some kind.  Use the notebook to describe your experience and the change that you made.
+
+We'll review your result at the beginning of the next class.  If you have difficulty, ask questions in the UMBC discussion forum for the class.
