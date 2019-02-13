@@ -115,7 +115,7 @@ The data source for OpenLayers earthquake example
 * [Using GeoJSON with Leaflet](https://leafletjs.com/examples/geojson/) -- Leaflet docs
     * [map.getBounds()](https://leafletjs.com/reference-1.4.0.html#map-getbounds)
 
-## Leaflet Dots
+## Leaflet dots
 
     var map = L.map("map");
     L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(map);
@@ -187,8 +187,7 @@ can simply refer to the values and they’ll run when the promise resolves.
 
 ## Browsers evolve
 
-Observable uses the most modern browser capabilities, such as Promises and Generators.  
-For example...
+Observable uses the most modern browser capabilities, such as Promises and Generators.  Consider generators as an example:
 
 * `function*` -- declaration defines a "generator function", which returns a "Generator" object
 * `Generator` -- an object that conforms to the `iterable` and `iterator` protocols
@@ -197,7 +196,7 @@ For example...
     * `Generator.prototype.throw()` -- throws an error to a generator (and finishes the generator, unless it's caught)
 * `yield` -- used to pause/resume a generator function
 
-Many of these capabilities won't work in older browsers (i.e., IE)
+These don't work in older browsers (i.e., IE).
 MDN pages typically provide browser compatibility at the bottom of the page.  
 
 #### References
