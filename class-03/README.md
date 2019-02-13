@@ -19,7 +19,7 @@
     * [HTML canvas](https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_canvas_tut_path2)
     * [HTML SVG](https://www.w3schools.com/html/tryit.asp?filename=tryhtml_svg_circle)
 * [HTML validator](https://validator.w3.org/nu/#textarea)
-    * You can omit the <html>, <head> and <body> tags, but beware.
+    * You can omit the `<html>`, `<head>` and `<body>` tags, but beware.
 * [HTML5 Boilerplate](https://html5boilerplate.com/)
     * An authoritative resource for best practices -- way beyond the scope of this course.
 
