@@ -140,11 +140,9 @@ function getRandomLatLng() {
 ## Browsers are asynchronous
 
 Rather than locking up while the file is downloading, browsers download
-asynchronously.  This complicates things.  The typical way for JavaScript to handle
+asynchronously.  This complicates things.  The typical way (old fashioned way?) for JavaScript to handle
 asynchronous loads is with callback functions.  For example, early versions of D3.js
 (before observablehq.com existed) would load USGS GeoJSON earthquakes with something like this:
-
-        d3 = require("https://d3js.org/d3.v4.min.js");
 
         var url = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson';
 
@@ -156,17 +154,21 @@ asynchronous loads is with callback functions.  For example, early versions of D
           console.log('# of quakes in the last hour:', quakes.features.length);
         }
 
-`processQuakes` is a callback function called after the GeoJSON is loaded and parsed into the variable `quakes`.
-The variable `err` is Null (so `(err)` evaluates to `false`) if the request is successful.
+In this example, `processQuakes` is a callback function. It gets called after the GeoJSON is 
+loaded and parsed into the `quakes` argument.
+That's if everything worked, and the variable `err` is Null (so `(err)` evaluates to `false`). 
+Otherwise, "err" is an error, so `(err)` evaluate to true and the function returns early.
 
-You can use D3.js to load data into an Observable noteboook as described in
+You can get this code to work in an Observable notebook, but there are limitations.
+The slick way to load data with D3 is described in 
 [Introduction to data](https://beta.observablehq.com/@mbostock/introduction-to-data).
-It's a little slicker with Observable because the latest version of D3.js
+It's slick because the latest version of D3.js
 uses JavaScript's `Promise` and `fetch`.
 The JavaScript "Promise" API makes it easier to work with asynchronous values.
 "Promise"s represent values that are not yet known, but that will be known in the future.
 
-The following line does the same thing, but without D3.js:
+If you're loading JSON, then you don't even need D3. 
+The following line does the same thing with JavaScript's built-in JSON parser.
 
     quakes = (await fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson')).json()
 
@@ -178,18 +180,14 @@ can simply refer to the values and they’ll run when the promise resolves.
 
 #### References:
 
-* [Introduction to data](https://beta.observablehq.com/@mbostock/introduction-to-data)
-* [Introduction to promises](https://beta.observablehq.com/@mbostock/introduction-to-promises)
+* [Introduction to Data](https://beta.observablehq.com/@mbostock/introduction-to-data) -- Mike Bostock
+* [Introduction to Promises](https://beta.observablehq.com/@mbostock/introduction-to-promises) -- Mike Bostock
 * [Observable standard library](https://github.com/observablehq/stdlib/blob/master/README.md)
 
 ## Browsers evolve
 
-Observable uses the most modern browser capabilities, such as Generators.  Often, these capabilities
-won't work in older browsers. That typically means any version of IE.  But sometimes it
-only the most recent version of the Chrome and Firefox.  MDN pages typically provide browser compatibility
-at the bottom of the page.  Most of the things we do in this class will work in the lastest
-version of IE, so we'll typically stay away from the most cutting edge capabilities.
-you may encounter them along the way.  For example...
+Observable uses the most modern browser capabilities, such as Promises and Generators.  
+For example...
 
 * `function*` -- declaration defines a "generator function", which returns a "Generator" object
 * `Generator` -- an object that conforms to the `iterable` and `iterator` protocols
@@ -197,6 +195,9 @@ you may encounter them along the way.  For example...
     * `Generator.prototype.return()` -- as `.next()` and also finishes generator
     * `Generator.prototype.throw()` -- throws an error to a generator (and finishes the generator, unless it's caught)
 * `yield` -- used to pause/resume a generator function
+
+Many of these capabilities won't work in older browsers (i.e., IE)
+MDN pages typically provide browser compatibility at the bottom of the page.  
 
 #### References
 
