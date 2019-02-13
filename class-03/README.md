@@ -140,14 +140,66 @@ function getRandomLatLng() {
 ## Browsers are asynchronous
 
 Rather than locking up while the file is downloading, browsers download
-asynchronously.  This complicates things.
+asynchronously.  This complicates things.  The typical way for JavaScript to handle
+asynchronous loads is with callback functions.  For example, early versions of D3.js
+(before observablehq.com existed) would load USGS GeoJSON earthquakes with something like this:
 
-JavaScript has a "Promise" API (and companion "await" operator), that make it
-easier to work with asynchronous values.  "Promises" represent values that
-are not yet known, but that will be known in the future.
+        d3 = require("https://d3js.org/d3.v4.min.js");
 
-Observable implicitly awaits promises across cell boundaries, so you often don’t
+        var url = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson';
+
+        d3.json(url, processQuakes);
+
+        function processQuakes(err, quakes) {
+          if (err) return console.log('Error loading quake data', err);
+
+          console.log('# of quakes in the last hour:', quakes.features.length);
+        }
+
+`processQuakes` is a callback function called after the GeoJSON is loaded and parsed into the variable `quakes`.
+The variable `err` is Null (so `(err)` evaluates to `false`) if the request is successful.
+
+You can use D3.js to load data into an Observable noteboook as described in
+[Introduction to data](https://beta.observablehq.com/@mbostock/introduction-to-data).
+It's a little slicker with Observable because the latest version of D3.js
+uses JavaScript's `Promise` and `fetch`.
+The JavaScript "Promise" API makes it easier to work with asynchronous values.
+"Promise"s represent values that are not yet known, but that will be known in the future.
+
+The following line does the same thing, but without D3.js:
+
+    quakes = (await fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson')).json()
+
+The variable `quakes` starts out as a `Promise` and then resolves to a JavaScript
+object representing the GeoJSON FeatureCollection containing all earthquakes in the last hour.
+Observable implicitly "awaits" promises across cell boundaries, so you often don’t
 need to deal with a promise directly. Cells can return promises, and other cells
 can simply refer to the values and they’ll run when the promise resolves.
 
+#### References:
+
+* [Introduction to data](https://beta.observablehq.com/@mbostock/introduction-to-data)
 * [Introduction to promises](https://beta.observablehq.com/@mbostock/introduction-to-promises)
+* [Observable standard library](https://github.com/observablehq/stdlib/blob/master/README.md)
+
+## Browsers evolve
+
+Observable uses the most modern browser capabilities, such as Generators.  Often, these capabilities
+won't work in older browsers. That typically means any version of IE.  But sometimes it
+only the most recent version of the Chrome and Firefox.  MDN pages typically provide browser compatibility
+at the bottom of the page.  Most of the things we do in this class will work in the lastest
+version of IE, so we'll typically stay away from the most cutting edge capabilities.
+you may encounter them along the way.  For example...
+
+* `function*` -- declaration defines a "generator function", which returns a "Generator" object
+* `Generator` -- an object that conforms to the `iterable` and `iterator` protocols
+    * `Generator.prototype.next()` -- returns the value yielded by the "yield" expression
+    * `Generator.prototype.return()` -- as `.next()` and also finishes generator
+    * `Generator.prototype.throw()` -- throws an error to a generator (and finishes the generator, unless it's caught)
+* `yield` -- used to pause/resume a generator function
+
+#### References
+
+* [Introduction to Generators](https://beta.observablehq.com/@mbostock/introduction-to-generators) -- Mike Bostock
+* [function*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) -- MDN docs
+* [Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator) -- MDN docs
