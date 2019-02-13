@@ -6,11 +6,11 @@
 * [demo (Leaflet dots on a map)](http://localhost/~pbogden/classes/class-03/leaf.html)
 * [demo (OpenLayers dots on a map)](http://localhost/~pbogden/classes/class-03/test.html)
 
-## From Observable to the Web
+## Quick intro to HTML5
 
-* We only touched on this last time (gist.github.com & bl.ocks.org)
+* Last time we only touched on serving a web page from gist.github.com & bl.ocks.org.
 
-#### The Web
+#### 
 
 * [HTML Examples](https://www.w3schools.com/html/html_examples.asp) -- W3Schools
     * [HTML Document](https://www.w3schools.com/html/tryit.asp?filename=tryhtml_basic_document)
@@ -139,8 +139,9 @@ function getRandomLatLng() {
 
 ## Browsers are asynchronous
 
-Rather than locking up while the file is downloading, browsers download
-asynchronously.  This complicates things.  The typical way (old fashioned way?) for JavaScript to handle
+Browsers download asynchronously.  
+Otherwise, they'd lock up during file downloads. 
+This complicates things.  The typical way (old-fashioned way?) for JavaScript to handle
 asynchronous loads is with callback functions.  For example, early versions of D3.js
 (before observablehq.com existed) would load USGS GeoJSON earthquakes with something like this:
 
