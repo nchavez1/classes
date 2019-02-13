@@ -32,9 +32,11 @@
 
 <script>
 
-// The "fetch()" returns a "Promise" that resolves to the Response to that request,
-//      whether it is successful or not.
-// https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+// The "fetch()" method returns a "Promise" that resolves to the request
+//      "Response", whether the request is successful or not.
+//       See: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+
+
 fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_week.geojson')
 //fetch('http://example.com/movies.json')
   .then(function(response) {
@@ -50,20 +52,23 @@ function getQuakes() {
 }
 
 // The "Body" mixin of the fetch API represents the body of the response/request
-// Response.json() reads response stream to completion, and returns a Promise
-//         that resolves with the result of parsing the body text as JSON.
+//   Response.json() implies Body.json(), which reads response stream to completion,
+//         and returns a Promise that resolves to the response body text parsed as JSON.
 //         Ref: https://developer.mozilla.org/en-US/docs/Web/API/Body
 async function waitForQuakes() {
   var response = await getQuakes();
 	var geojson = response.json();
 	console.log('HERE ARE THE quakes #1 response', response)
 	console.log('HERE ARE THE quakes #1 geojson', geojson)  // Promise that resolves to JSON (pending)
-	console.log('HERE ARE THE quakes #1', geojson.features)
-  console.log('# of earthquakes #1:', geojson.features.length)
-	return quakes.json();
+	return geojson;  // return a Promise that resolves to parsed JSON
 }
-var quakes = waitForQuakes();
-console.log('HERE ARE THE quakes 2', quakes)
+
+waitForQuakes().then(addQuakes);
+
+function addQuakes(quakes) {
+  console.log('HERE ARE THE quakes 2', quakes)
+  console.log('HERE ARE THE # of quakes 2:', quakes.features.length)
+}
 
 // The "function*" declaration defines a "generator function", which returns a "Generator" object
 //
