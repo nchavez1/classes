@@ -3,6 +3,7 @@
 
 * [demo (my map)](http://localhost/~pbogden/classes/class-03/)
 * [demo (earthquake heatmap)](http://localhost/~pbogden/classes/class-03/olheat.html)
+* [demo (dots on a map)](http://localhost/~pbogden/classes/class-03/temp.html)
 
 ## From Observable to the Web
 
@@ -88,16 +89,19 @@ The data source for OpenLayers earthquake example
 
 ## Slippy maps
 
-* [Observable Leaflet](https://beta.observablehq.com/@tmcw/leaflet) -- Observable notebook by Tom MacWright
+* [Leaflet](https://leafletjs.com/)
+    * [Leaflet examples](https://leafletjs.com/examples.html)
+    * [Using GeoJSON with Leaflet](https://leafletjs.com/examples/geojson/)
+    * [Leaflet API reference](https://leafletjs.com/reference-1.4.0.html)
+    * [Leaflet | Mapbox](https://docs.mapbox.com/help/glossary/leaflet/)
+* [Observable Leaflet](https://beta.observablehq.com/@tmcw/leaflet) -- Tom MacWright
     * Nice introduction to Leaflet in Observable
     * Shows how to add a polygon to Leaflet (vector data)
     * Shows how to add a heatmap to Leaflet
-* [Using OpenLayers](https://beta.observablehq.com/@tmcw/using-openlayers)
-    * [Hello, OpenLayers!](https://beta.observablehq.com/@mbostock/hello-openlayers)
-    * [Hello, OpenLayers Select!](https://beta.observablehq.com/@mbostock/hello-openlayers-select)
-    * [Hello, OpenLayers Box Selection!](https://beta.observablehq.com/@mbostock/hello-openlayers-box-selection)
-* [Leaflet](https://leafletjs.com/)
-    * [Leaflet | Mapbox](https://docs.mapbox.com/help/glossary/leaflet/)
+* [Using OpenLayers](https://beta.observablehq.com/@tmcw/using-openlayers) -- Tom MacWright
+    * [Hello, OpenLayers!](https://beta.observablehq.com/@mbostock/hello-openlayers) -- Mike Bostock
+    * [Hello, OpenLayers Select!](https://beta.observablehq.com/@mbostock/hello-openlayers-select) -- Mike Bostock
+    * [Hello, OpenLayers Box Selection!](https://beta.observablehq.com/@mbostock/hello-openlayers-box-selection) -- Mike Bostock
 * [OpenLayers](https://openlayers.org/)
     * [Download](https://openlayers.org/download/) -- several ways of getting the code
     * [earthquake heatmap](https://openlayers.org/en/v4.6.5/examples/heatmap-earthquakes.html) -- official example
@@ -107,8 +111,42 @@ The data source for OpenLayers earthquake example
 * [D3.js API]
     * [d3.geoContains()](https://github.com/d3/d3-geo/blob/master/README.md#geoContains)
     * [d3.polygonContains()](https://github.com/d3/d3-geo/blob/master/README.md#geoContains)
-
-## Leaflet
-
 * [Using GeoJSON with Leaflet](https://leafletjs.com/examples/geojson/) -- Leaflet docs
     * [map.getBounds()](https://leafletjs.com/reference-1.4.0.html#map-getbounds)
+
+## Leaflet Dots
+
+var map = L.map("map");
+L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(map);
+
+map.setView([48.85, 2.35], 8);
+
+var myRenderer = L.canvas({ padding: 0.5 });
+
+for (var i = 0; i < 100000; i += 1) { // 100k points
+	L.circleMarker(getRandomLatLng(), {
+  	renderer: myRenderer
+  }).addTo(map).bindPopup('marker ' + i);
+}
+
+function getRandomLatLng() {
+	return [
+  	-90 + 180 * Math.random(),
+        -180 + 360 * Math.random()
+      ];
+}
+
+## Browsers are asynchronous
+
+Rather than locking up while the file is downloading, browsers download
+asynchronously.  This complicates things.
+
+JavaScript has a "Promise" API (and companion "await" operator), that make it
+easier to work with asynchronous values.  "Promises" represent values that
+are not yet known, but that will be known in the future.
+
+Observable implicitly awaits promises across cell boundaries, so you often don’t
+need to deal with a promise directly. Cells can return promises, and other cells
+can simply refer to the values and they’ll run when the promise resolves.
+
+* [Introduction to promises](https://beta.observablehq.com/@mbostock/introduction-to-promises)
