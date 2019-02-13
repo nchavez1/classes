@@ -88,6 +88,15 @@ The data source for OpenLayers earthquake example
                 </Placemark>
                 etc...
 
+#### TODO
+
+* Compare with GeoJSON feed.
+* Show how to manipulate the feature vector
+* Show how to filter
+* Do it dynamically
+
+Reference: [GeoJSON spec](http://geojson.org/)
+
 ## Slippy maps
 
 * [Leaflet](https://leafletjs.com/)
