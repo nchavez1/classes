@@ -3,7 +3,8 @@
 
 * [demo (my map)](http://localhost/~pbogden/classes/class-03/)
 * [demo (earthquake heatmap)](http://localhost/~pbogden/classes/class-03/olheat.html)
-* [demo (dots on a map)](http://localhost/~pbogden/classes/class-03/test.html)
+* [demo (Leaflet dots on a map)](http://localhost/~pbogden/classes/class-03/leaf.html)
+* [demo (OpenLayers dots on a map)](http://localhost/~pbogden/classes/class-03/test.html)
 
 ## From Observable to the Web
 
