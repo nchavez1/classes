@@ -1,10 +1,11 @@
 
 # Class #3
 
-* [demo (my map)](http://localhost/~pbogden/classes/class-03/)
-* [demo (earthquake heatmap)](http://localhost/~pbogden/classes/class-03/olheat.html)
-* [demo (Leaflet dots on a map)](http://localhost/~pbogden/classes/class-03/leaf.html)
-* [demo (OpenLayers dots on a map)](http://localhost/~pbogden/classes/class-03/test.html)
+* [OpenLayers demo (my map)](http://localhost/~pbogden/classes/class-03/)
+    * Reference: https://openlayers.org/en/latest/doc/quickstart.html
+* [Earthquake heatmap demo](http://localhost/~pbogden/classes/class-03/olheat.html) -- OpenLayers
+* [Observble earthquakes a map with Leaflet)](https://beta.observablehq.com/d/3d0228a3b6eec481) -- PB
+    * [Observable Leaflet](https://beta.observablehq.com/@tmcw/leaflet) -- Tom MacWright
 
 ## Quick intro to HTML5
 
@@ -148,11 +149,12 @@ Reference: [GeoJSON spec](http://geojson.org/)
 
 ## Browsers are asynchronous
 
-Browsers download asynchronously.  
-Otherwise, they'd lock up during file downloads. 
-This complicates things.  The typical way (old-fashioned way?) for JavaScript to handle
-asynchronous loads is with callback functions.  For example, early versions of D3.js
-(before observablehq.com existed) would load USGS GeoJSON earthquakes with something like this:
+Browsers do lots of things asynchronously.
+Otherwise, they'd freeze during things like file downloads.
+Working asynchronously complicates things, especially when we're loading remote data sources.
+The typical (soon to be old-fashioned) way for JavaScript to handle
+asynchronous loads is with callback functions.  For example, early versions of D3
+(before observablehq.com existed) would load the USGS GeoJSON earthquake feed with something like this:
 
         var url = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson';
 
@@ -166,14 +168,16 @@ asynchronous loads is with callback functions.  For example, early versions of D
 
 In this example, `processQuakes` is a callback function. It gets called after the GeoJSON is 
 loaded and parsed into the `quakes` argument.
-That's if everything worked, and the variable `err` is Null (so `(err)` evaluates to `false`). 
-Otherwise, "err" is an error, so `(err)` evaluate to true and the function returns early.
+If everything worked okay, the variable `err` is Null (so `(err)` evaluates to `false`). 
+Otherwise, "err" is an object that indicates the error, in which case `(err)` evaluates to 
+true and the function returns early.
 
-You can get this code to work in an Observable notebook, but there are limitations.
-The slick way to load data with D3 is described in 
+You can get this code to work in an Observable notebook, but it's not straightforward if 
+you're using lots of cells.
+Instead, the slick (modern) way to load data with D3 is described in 
 [Introduction to data](https://beta.observablehq.com/@mbostock/introduction-to-data).
 It's slick because the latest version of D3.js
-uses JavaScript's `Promise` and `fetch`.
+uses JavaScript's relatively new `Promise` and `fetch` capabilities.
 The JavaScript "Promise" API makes it easier to work with asynchronous values.
 "Promise"s represent values that are not yet known, but that will be known in the future.
 
@@ -196,7 +200,9 @@ can simply refer to the values and they’ll run when the promise resolves.
 
 ## Browsers evolve
 
-Observable uses the most modern browser capabilities, such as Promises and Generators.  Consider generators as an example:
+Observable uses the most modern browser capabilities, such as Promises and Generators.  
+Generators are the things that allow Observable cells to communicate and update their shared values dynamically. 
+The key JavaScript elements, which you'll see from time to time, include:
 
 * `function*` -- declaration defines a "generator function", which returns a "Generator" object
 * `Generator` -- an object that conforms to the `iterable` and `iterator` protocols
@@ -205,8 +211,10 @@ Observable uses the most modern browser capabilities, such as Promises and Gener
     * `Generator.prototype.throw()` -- throws an error to a generator (and finishes the generator, unless it's caught)
 * `yield` -- used to pause/resume a generator function
 
-These don't work in older browsers (i.e., IE).
-MDN pages typically provide browser compatibility at the bottom of the page.  
+Older browsers (e.g., IE) don't know about Generators, or Promises, or 
+many of the other cool things built into Observable.
+If you want your Observable notebooks to run in older browsers, you'll need to do some extra work.
+MDN pages typically provide browser compatibility at the bottom of the page.
 
 #### References
 

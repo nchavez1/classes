@@ -1,40 +1,40 @@
-
 <!DOCTYPE html>
 <html>
 <head>
 
-	<title>GeoJSON tutorial - Leaflet</title>
+<title>GeoJSON tutorial - Leaflet</title>
 
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
+<style>
 
-	<style>
-		html, body {
-			height: 100%;
-			margin: 0;
-		}
-		#map {
-			width: 600px;
-			height: 400px;
-		}
-	</style>
+html, body {
+  height: 100%;
+  margin: 0;
+}
 
+#map {
+    width: 600px;
+    height: 400px;
+}
 
+</style>
 </head>
+
 <body>
 
 <div id='map'></div>
 
 <script>
 
-// The "fetch()" returns a "Promise" that resolves to the Response to that request,
-//      whether it is successful or not.
-// https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+// "fetch()" returns a "Promise" that resolves to the Response to that request, whether successful or not.
+//        Ref: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+
 var promise1 = fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_week.geojson')
 //fetch('http://example.com/movies.json')
   .then(function(response) {
@@ -55,12 +55,12 @@ function getQuakes() {
 //         Ref: https://developer.mozilla.org/en-US/docs/Web/API/Body
 async function waitForQuakes() {
   var response = await getQuakes();
-	var geojson = response.json();  // Promise that resolves to JSON (pending)
-	console.log('HERE ARE THE quakes #1 response', response)
-	console.log('HERE ARE THE quakes #1 geojson', geojson)
-	console.log('HERE ARE THE quakes #1', geojson.features)
+  var geojson = response.json();  // Promise that resolves to JSON (pending)
+  console.log('HERE ARE THE quakes #1 response', response)
+  console.log('HERE ARE THE quakes #1 geojson', geojson)
+  console.log('HERE ARE THE quakes #1', geojson.features)
   console.log('# of earthquakes #1:', geojson.features.length)
-	return quakes.json();
+  return quakes.json();
 }
 var quakes = waitForQuakes();
 console.log('HERE ARE THE quakes 2', quakes)
@@ -92,7 +92,7 @@ async function f1() {
 f1();
 
 //let quakes = function* () {
-//	yield 42;
+//  yield 42;
 //}
 // let quakes = function* () {
 //   fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_week.geojson');
@@ -101,7 +101,7 @@ f1();
 //   return json;
 // }
 //  async function q() {
-// 	 let response = await fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_week.geojson');
+//    let response = await fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_week.geojson');
 //  }
 
   // We're mixing "let" and "var" --
