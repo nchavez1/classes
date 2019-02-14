@@ -4,6 +4,10 @@
 * [OpenLayers demo (my map)](http://localhost/~pbogden/classes/class-03/)
     * Reference: https://openlayers.org/en/latest/doc/quickstart.html
 * [Earthquake heatmap demo](http://localhost/~pbogden/classes/class-03/olheat.html) -- OpenLayers
+    * See reference below
+    * As a gist: https://gist.github.com/pbogden/417b72d388a4a8447ee5940e638787d0
+    * As a bl.ock: https://bl.ocks.org/pbogden/417b72d388a4a8447ee5940e638787d0
+    * Standalone: Go to the bl.ock and click "Open" right under the map
 * [Observble earthquakes a map with Leaflet)](https://beta.observablehq.com/d/3d0228a3b6eec481) -- PB
     * [Observable Leaflet](https://beta.observablehq.com/@tmcw/leaflet) -- Tom MacWright
 
@@ -55,10 +59,6 @@ Compare the SVG (vector) and canvas (raster) examples. Add the following to the 
 * [Observable standard library](https://github.com/observablehq/stdlib)
 * [Observable runtime]((https://github.com/observablehq/runtime)
 
-## Chloropleth maps
-
-* Compare Plotly and D3.js examples
-
 ## Earthquakes
 
 The data source for OpenLayers earthquake example
@@ -89,7 +89,9 @@ The data source for OpenLayers earthquake example
                 </Placemark>
                 etc...
 
-#### TODO
+#### Class exercises
+
+Observable quakes on leaflet: https://beta.observablehq.com/d/3d0228a3b6eec481
 
 * Compare with GeoJSON feed.
 * Show how to manipulate the feature vector
@@ -221,3 +223,7 @@ MDN pages typically provide browser compatibility at the bottom of the page.
 * [Introduction to Generators](https://beta.observablehq.com/@mbostock/introduction-to-generators) -- Mike Bostock
 * [function*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) -- MDN docs
 * [Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator) -- MDN docs
+
+## Chloropleth maps
+
+* Compare Plotly and D3.js examples
