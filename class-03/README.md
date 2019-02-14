@@ -1,21 +1,21 @@
 
 # Class #3
 
-* [OpenLayers demo (my map)](http://localhost/~pbogden/classes/class-03/)
-    * Reference: https://openlayers.org/en/latest/doc/quickstart.html
-* [Earthquake heatmap demo](http://localhost/~pbogden/classes/class-03/olheat.html) -- OpenLayers
-    * https://openlayers.org/en/latest/examples/heatmap-earthquakes.html -- official example
-    * As a gist: https://gist.github.com/pbogden/417b72d388a4a8447ee5940e638787d0
-    * As a bl.ock: https://bl.ocks.org/pbogden/417b72d388a4a8447ee5940e638787d0
-    * Standalone: Go to the bl.ock and click "Open" right under the map
-* [Observble earthquakes a map with Leaflet)](https://beta.observablehq.com/d/3d0228a3b6eec481) -- PB
-    * [Observable Leaflet](https://beta.observablehq.com/@tmcw/leaflet) -- Tom MacWright
+## Working with GeoJSON
+
+Observable quakes on leaflet: https://beta.observablehq.com/d/3d0228a3b6eec481
+
+* Compare with GeoJSON feed.
+* Show how to manipulate the feature vector
+* Show how to filter
+
+Reference: [GeoJSON spec](http://geojson.org/)
 
 ## Quick intro to HTML5
 
 * Last time we only touched on serving a web page from gist.github.com & bl.ocks.org.
 
-#### 
+#### Intro to HTML5
 
 * [HTML Examples](https://www.w3schools.com/html/html_examples.asp) -- W3Schools
     * [HTML Document](https://www.w3schools.com/html/tryit.asp?filename=tryhtml_basic_document)
@@ -40,9 +40,19 @@ Compare the SVG (vector) and canvas (raster) examples. Add the following to the 
 * [Let's make a bar chart](https://bost.ocks.org/mike/bar/)
     * [Coding the chart manually](https://bost.ocks.org/mike/bar/#manual)
 
-#### Serving a web page
+## Slippy maps
 
-* Demonstrate how to get homework assignments into a gist and served from bl.ocks.org
+Demonstrate how to get a map to a gist and then served from bl.ocks.org
+
+* [OpenLayers demo (my map)](http://localhost/~pbogden/classes/class-03/)
+    * Reference: https://openlayers.org/en/latest/doc/quickstart.html
+* [Earthquake heatmap demo](http://localhost/~pbogden/classes/class-03/olheat.html) -- OpenLayers
+    * https://openlayers.org/en/latest/examples/heatmap-earthquakes.html -- official example
+    * As a gist: https://gist.github.com/pbogden/417b72d388a4a8447ee5940e638787d0
+    * As a bl.ock: https://bl.ocks.org/pbogden/417b72d388a4a8447ee5940e638787d0
+    * Standalone: Go to the bl.ock and click "Open" right under the map
+* [Observble earthquakes a map with Leaflet)](https://beta.observablehq.com/d/3d0228a3b6eec481) -- PB
+    * [Observable Leaflet](https://beta.observablehq.com/@tmcw/leaflet) -- Tom MacWright
 
 #### References:
 
@@ -51,11 +61,11 @@ Compare the SVG (vector) and canvas (raster) examples. Add the following to the 
 * [Introduction to HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started) -- MDN
     * [The head metadata in HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML)
     * [Example page with CSS and JavaScript](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML#Active_learning_applying_CSS_and_JavaScript_to_a_page)
+
+#### Observable to a standalone Web page
+
 * [Downloading and Embedding Notebooks](https://beta.observablehq.com/@jashkenas/downloading-and-embedding-notebooks) -- Observable
     * [Standard Library](https://beta.observablehq.com/@mbostock/standard-library)
-
-#### Advanced references:
-
 * [Observable standard library](https://github.com/observablehq/stdlib)
 * [Observable runtime]((https://github.com/observablehq/runtime)
 
@@ -88,17 +98,6 @@ The data source for OpenLayers earthquake example
                     </Point>
                 </Placemark>
                 etc...
-
-#### Class exercises
-
-Observable quakes on leaflet: https://beta.observablehq.com/d/3d0228a3b6eec481
-
-* Compare with GeoJSON feed.
-* Show how to manipulate the feature vector
-* Show how to filter
-* Do it dynamically
-
-Reference: [GeoJSON spec](http://geojson.org/)
 
 ## Slippy maps
 
