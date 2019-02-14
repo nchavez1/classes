@@ -4,7 +4,7 @@
 * [OpenLayers demo (my map)](http://localhost/~pbogden/classes/class-03/)
     * Reference: https://openlayers.org/en/latest/doc/quickstart.html
 * [Earthquake heatmap demo](http://localhost/~pbogden/classes/class-03/olheat.html) -- OpenLayers
-    * See reference below
+    * https://openlayers.org/en/latest/examples/heatmap-earthquakes.html -- official example
     * As a gist: https://gist.github.com/pbogden/417b72d388a4a8447ee5940e638787d0
     * As a bl.ock: https://bl.ocks.org/pbogden/417b72d388a4a8447ee5940e638787d0
     * Standalone: Go to the bl.ock and click "Open" right under the map
