@@ -46,7 +46,7 @@ Demonstrate how to get a map to a gist and then served from bl.ocks.org
 
 * [OpenLayers demo (my map)](http://localhost/~pbogden/classes/class-03/)
     * Reference: https://openlayers.org/en/latest/doc/quickstart.html
-* [Earthquake heatmap demo](http://localhost/~pbogden/classes/class-03/olheat.html) -- OpenLayers
+* [Earthquake heatmap demo](https://github.com/nchavez1/classes/blob/master/class-03/heatmap.html) -- OpenLayers
     * https://openlayers.org/en/latest/examples/heatmap-earthquakes.html -- official example
     * As a gist: https://gist.github.com/pbogden/417b72d388a4a8447ee5940e638787d0
     * As a bl.ock: https://bl.ocks.org/pbogden/417b72d388a4a8447ee5940e638787d0
