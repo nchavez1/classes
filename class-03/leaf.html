@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>GeoJSON tutorial - Leaflet</title>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
+
+<style>
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+#map {
+    width: 600px;
+    height: 400px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id='map'></div>
+
+<script>
+
+// "fetch()" returns a "Promise" that resolves to the Response to that request, whether successful or not.
+//        Ref: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+
+var promise1 = fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_week.geojson')
+//fetch('http://example.com/movies.json')
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(myJson) {
+    // console.log(JSON.stringify(myJson));
+    console.log('# of earthquakes:', myJson.features.length)
+  });
+
+function getQuakes() {
+  return fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_week.geojson')
+}
+
+// The "Body" mixin of the fetch API represents the body of the response/request
+// Response.json() reads response stream to completion, and returns a Promise
+//         that resolves with the result of parsing the body text as JSON.
+//         Ref: https://developer.mozilla.org/en-US/docs/Web/API/Body
+async function waitForQuakes() {
+  var response = await getQuakes();
+  var geojson = response.json();  // Promise that resolves to JSON (pending)
+  console.log('HERE ARE THE quakes #1 response', response)
+  console.log('HERE ARE THE quakes #1 geojson', geojson)
+  console.log('HERE ARE THE quakes #1', geojson.features)
+  console.log('# of earthquakes #1:', geojson.features.length)
+  return quakes.json();
+}
+var quakes = waitForQuakes();
+console.log('HERE ARE THE quakes 2', quakes)
+
+// The "function*" declaration defines a "generator function", which returns a "Generator" object
+//
+//    Ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*
+//    Ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator
+//
+// Generator objects conform to both the "iterator" and "iterable" protocols.
+//
+// The "await" operator is used to wait for a "Promise". It can only be used inside an "async" function.
+//
+// If a Promise is passed to an "await" expression, the "await" waits for the Promise to be
+//      fulfilled and returns the fulfilled value.
+
+function resolveAfter2Seconds(x) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(x);
+    }, 2000);
+  });
+}
+
+async function f1() {
+  var x = await resolveAfter2Seconds(10);
+  console.log(x); // 10
+}
+f1();
+
+//let quakes = function* () {
+//  yield 42;
+//}
+// let quakes = function* () {
+//   fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_week.geojson');
+//   let response = await fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_week.geojson');
+//   let json = await response.json();
+//   return json;
+// }
+//  async function q() {
+//    let response = await fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_week.geojson');
+//  }
+
+  // We're mixing "let" and "var" --
+  // Ref:  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
+  let map = L.map('map').setView([40.7299, -73.9923], 13);
+  let osmLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png',{
+//  let osmLayer = L.tileLayer('https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}@2x.png', {
+      attribution: 'Wikimedia maps beta | &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  // See: https://leafletjs.com/examples/geojson/
+  var geojsonMarkerOptions = {
+    radius: 8,
+    fillColor: "#ff7800",
+    color: "#000",
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 0.8
+};
+
+  // See: https://leafletjs.com/reference-1.4.0.html#geojson-pointtolayer
+  var pointToLayer = function (feature, latlng) {
+        return L.circleMarker(latlng, geojsonMarkerOptions);
+    }
+
+  let quakesLayer = L.geoJson(quakes, { pointToLayer: pointToLayer }).addTo(map);
+  //grandCentralLayer.bindPopup('Grand Central Terminal');
+  map.fitBounds(quakesLayer.getBounds());
+</script>
+
+</body>
+</html>
