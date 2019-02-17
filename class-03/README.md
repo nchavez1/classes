@@ -3,6 +3,65 @@
 
 ## Working with GeoJSON
 
+Create an observable notebook, and get some data from the USGS earthquake feed.
+
+1. Load data into a workbook cell with pure (modern) JavaScript:
+
+        quakes = {
+            let response = await fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_week.geojson');
+            let json = await response.json();
+            return json;
+          }
+
+    or, equivalently.
+
+2. You can do the same thing with D3. First load D3 in one cell
+
+        d3 = require('d3');
+
+    then load the data in one line:
+        
+        data = d3.json('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_week.geojson');
+
+You may use 1. or 2. but you don't need to do both. Each produces a JavaScript Object `quakes`
+that corresponds to a GeoJSON "FeatureCollection".
+
+3. Create an array of earthquakes where each element in the array is a single GeoJSON feature:
+
+        quakes = data.features; // Array
+
+In this case, `data.features` is an `Array`
+A JavaScript `Array` is iterable, much like a Python `list`.  Iterable manipulation 
+is a common task when analyzing or visualizing data.
+
+4. Create an array of earthquake Latitudes
+
+        lats = quakes.map(function(d) { return d.geometry.coordinates[0]; });
+
+`Array.map()` creates a new array with the result of calling a function 
+on every element in the array.
+That function is the argument of `.map()`.
+
+Note: In JavaScript, you operate on an `Array` with `.map()`.  
+In Python, the equivalent involves "list comprehensions". 
+For example,
+
+        map(f, iterable)
+
+    is equivalent to:
+
+        [f(x) for x in iterable]
+
+#### References:
+
+* [GeoJSON](http://geojson.org/) -- Official specification
+* [USGS GeoJSON Format](http://geojson.org/) -- USGS documentation with links to various earthquake feeds.
+* [JavaScript `map()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) -- MDN docs
+* [Arrays in D3](https://github.com/d3/d3/blob/master/API.md) -- API Reference
+    * [d3-array](https://github.com/d3/d3-array) -- Detailed API reference for array manipulation in D3
+    * This reference includes a nice summary of all "built-in" mutation methods for arrays.
+    * D3 adds functionality that resembles many elements of Python's numpy.
+
 Observable quakes on leaflet: https://beta.observablehq.com/d/3d0228a3b6eec481
 
 * Compare with GeoJSON feed.
@@ -290,9 +349,11 @@ MDN pages typically provide browser compatibility at the bottom of the page.
 #### References
 
 * [Introduction to Generators](https://beta.observablehq.com/@mbostock/introduction-to-generators) -- Mike Bostock
-* [function*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) -- MDN docs
+* [function\*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function\*) -- MDN docs
 * [Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator) -- MDN docs
 
-## Chloropleth maps
+## Class #3 Assignment
 
-* Compare Plotly and D3.js examples
+We demonstrated Array manipulation with `Array.map()`
+
+2. a  
