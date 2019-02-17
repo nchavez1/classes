@@ -50,11 +50,11 @@ Iterable manipulation is a common task when analyzing or visualizing data, and w
 Note: In JavaScript, you operate on an `Array` with `.map()`, whereas the Python
 equivalent involves "list comprehensions".  For example, in Python:
 
-        map(f, iterable)
+    map(f, iterable)
 
-    is equivalent to:
+is equivalent to:
 
-        [f(x) for x in iterable]
+    [f(x) for x in iterable]
 
 #### References:
 
