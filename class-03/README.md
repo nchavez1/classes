@@ -3,9 +3,11 @@
 
 ## Working with GeoJSON
 
-Create an observable notebook, and get some data from the USGS earthquake feed.
+1. First, create an observable notebook. 
 
-1. Load data into a workbook cell with pure (modern) JavaScript:
+Then download and work with GeoJSON data from the USGS earthquake feed.
+
+2. Load data into a workbook cell with pure (modern) JavaScript:
 
         quakes = {
             let response = await fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_week.geojson');
