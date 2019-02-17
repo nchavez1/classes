@@ -5,9 +5,9 @@
 
 1. First, create an observable notebook. 
 
-Then download and work with GeoJSON data from the USGS earthquake feed.
+2. Then download and work with GeoJSON data from the USGS earthquake feed.
 
-2. Load data into a workbook cell with pure (modern) JavaScript:
+    You can load data into a workbook cell with pure (modern) JavaScript:
 
         quakes = {
             let response = await fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_week.geojson');
@@ -15,9 +15,7 @@ Then download and work with GeoJSON data from the USGS earthquake feed.
             return json;
           }
 
-    or, equivalently.
-
-2. You can do the same thing with D3. First load D3 in one cell
+    or, you can do the same thing more easily with D3. First load D3 in one cell
 
         d3 = require('d3');
 
@@ -25,28 +23,32 @@ Then download and work with GeoJSON data from the USGS earthquake feed.
         
         data = d3.json('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_week.geojson');
 
-You may use 1. or 2. but you don't need to do both. Each produces a JavaScript Object `quakes`
-that corresponds to a GeoJSON "FeatureCollection".
+You may use either approach, but you don't need to do both. Each produces an identical
+JavaScript Object `data` that represents the GeoJSON "FeatureCollection".
 
-3. Create an array of earthquakes where each element in the array is a single GeoJSON feature:
+3. Create an `Array` of earthquakes, where each element in the `Array` is a single GeoJSON feature:
 
         quakes = data.features; // Array
 
-In this case, `data.features` is an `Array`
-A JavaScript `Array` is iterable, much like a Python `list`.  Iterable manipulation 
-is a common task when analyzing or visualizing data.
+In this case, `data.features` is the `Array`.
+
+A JavaScript `Array` is iterable, much like a Python `list`.  
+Iterable manipulation is a common task when analyzing or visualizing data, and we'll use it to process the earthquakes.
 
 4. Create an array of earthquake Latitudes
 
         lats = quakes.map(function(d) { return d.geometry.coordinates[0]; });
 
-`Array.map()` creates a new array with the result of calling a function 
-on every element in the array.
-That function is the argument of `.map()`.
+    This expression uses `Array.map()` to create a new array with the result of calling a function 
+    on every element in the array.
+    That function is the argument of `.map()`, namely,
 
-Note: In JavaScript, you operate on an `Array` with `.map()`.  
-In Python, the equivalent involves "list comprehensions". 
-For example,
+        function(d) {
+          return d.geometry.coordinates[0];
+        }
+
+Note: In JavaScript, you operate on an `Array` with `.map()`, whereas the Python
+equivalent involves "list comprehensions".  For example, in Python:
 
         map(f, iterable)
 
