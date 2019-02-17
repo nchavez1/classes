@@ -11,11 +11,13 @@ Observable quakes on leaflet: https://beta.observablehq.com/d/3d0228a3b6eec481
 
 Reference: [GeoJSON spec](http://geojson.org/)
 
-## Quick intro to HTML5
+## Intro to HTML5
 
-* Last time we only touched on serving a web page from gist.github.com & bl.ocks.org.
-
-#### Intro to HTML5
+HTML is an evolving specification. In the early days of the Web, it was an XML specification for web page content.
+But HTML5 (HTML version 5, initially released in 2014) is a modern version of HTML that includes 
+a range of technologies that extend well beyond standard HTML.
+Experiment with the [HTML Examples](https://www.w3schools.com/html/html_examples.asp) to get an idea
+of a basic HTML document, as well as some HTML5 basics.
 
 * [HTML Examples](https://www.w3schools.com/html/html_examples.asp) -- W3Schools
     * [HTML Document](https://www.w3schools.com/html/tryit.asp?filename=tryhtml_basic_document)
@@ -23,10 +25,13 @@ Reference: [GeoJSON spec](http://geojson.org/)
     * [HTML scripts](https://www.w3schools.com/html/tryit.asp?filename=tryhtml_script)
     * [HTML canvas](https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_canvas_tut_path2)
     * [HTML SVG](https://www.w3schools.com/html/tryit.asp?filename=tryhtml_svg_circle)
+
+#### Additional references
+
 * [HTML validator](https://validator.w3.org/nu/#textarea)
-    * You can omit the `<html>`, `<head>` and `<body>` tags, but beware.
+    * You can omit the `<html>`, `<head>` and `<body>` tags, but beware because older browsers may break.
 * [HTML5 Boilerplate](https://html5boilerplate.com/)
-    * An authoritative resource for best practices -- way beyond the scope of this course.
+    * An authoritative resource for best practices, but way beyond the scope of this course.
 
 Compare the SVG (vector) and canvas (raster) examples. Add the following to the canvas demo...
 
@@ -35,14 +40,77 @@ Compare the SVG (vector) and canvas (raster) examples. Add the following to the 
     ctx.strokeStyle="green";
     ctx.lineWidth=4;
 
-#### HTML Bar Chart
+## HTML Bar Chart
 
-* [Let's make a bar chart](https://bost.ocks.org/mike/bar/)
+The excellent [Let's Make a Bar Chart](https://bost.ocks.org/mike/bar/) series shows how 
+to create a bar chart with D3.
+Look at the first section, which shows how to create a rudimentary bar chart "manually". 
+It uses only HTML and basic styling with CSS.
+
+* [Let's Make a Bar Chart](https://bost.ocks.org/mike/bar/) -- by Mike Bostock
     * [Coding the chart manually](https://bost.ocks.org/mike/bar/#manual)
+
+This should start to give you a sense for the power of HTML5 in representing data. 
+It should also give you a sense that coding everything "manually" would be arduous. 
+
+This course shows you how to use JavaScript and various open source JavaScript libraries
+for practical data manipulation and visualization. 
+We will cover some of the basics of HTML5,
+and you should be aware that under the hood they all use HTML5.
+But you won't need to learn the extensive nuts and bolts of HTML5. 
 
 ## Slippy maps
 
-Demonstrate how to get a map to a gist and then served from bl.ocks.org
+[Tiled web maps](https://en.wikipedia.org/wiki/Tiled_web_map), such as Google Maps, 
+are often referred to as ["slippy maps"](https://wiki.openstreetmap.org/wiki/Slippy_Map).
+Their web interfaces let you pan and zoom tiles with your mouse or finger.
+We'll look at 3 different open source libraries for creating slippy maps:
+
+* [D3](https://d3js.org/)
+* [OpenLayers](https://openlayers.org/)
+* [Leflet](https://leafletjs.com/)
+
+Mike Bostock showed how to create a simple slippy map with with D3 
+in his [zoomable map tiles](http://bl.ocks.org/mbostock/4132797) demo.
+And Tom MacWright shows how to use OpenLayers and Leaflet in Observable: 
+
+* [Using OpenLayers](https://beta.observablehq.com/@tmcw/using-openlayers)
+* [Using Leaflet](https://beta.observablehq.com/@tmcw/leaflet)
+
+All tiled web maps require a web server to provide the tiles, which are typically simple PNGs.
+Many tile services use [OpenStreetMap](https://www.openstreetmap.org/copyright) data,
+and many demos we'll see in class use free map tile services. 
+But you should be careful when adapting these demos in practice because tile services often
+have restrictive tile usage policies that limit their use, especially for commercial purposes.
+For a good example, 
+look at the [OpenStreetMap Foundation's tile usage policy](https://operations.osmfoundation.org/policies/tiles/).
+
+1. View all the OpenLayers examples...
+    * https://openlayers.org/en/latest/examples/
+2. Find the OpenLayers earthquake-heatmap example...
+    * https://openlayers.org/en/latest/examples/heatmap-earthquakes.html
+3. Create a gist in your account, for example:
+    * https://gist.github.com/username
+4. Copy the the OpenLayers earthquake heatmap demo a file called `index.html` in the gist, 
+    * Create a `README.md` file when you create a gist -- it uses "markdown" to format text
+        * [Github markdown](https://guides.github.com/features/mastering-markdown/)
+        * [markdown example](https://guides.github.com/features/mastering-markdown/#examples)
+    * https://gist.github.com/pbogden/417b72d388a4a8447ee5940e638787d0
+5. Make the following changes to the index.html file
+    * TODO: Indicate the necessary changes in the README.md
+2. View the gist from bl.ocks.org, 
+    * In the URL, replace `gist.github.com` with `bl.ocks.org`
+    * https://gist.github.com/pbogden/417b72d388a4a8447ee5940e638787d0
+    * https://bl.ocks.org/pbogden/417b72d388a4a8447ee5940e638787d0
+3. View the standalone web page.
+    * Click the "Open" link to the lower right of the plot on bl.ocks.org, which takes you to
+    * Equivalently, add `/raw` in the URL, immediately following your github username
+    * https://bl.ocks.org/pbogden/raw/417b72d388a4a8447ee5940e638787d0/
+4. View the source HTML for that web page.
+    * Right click on the browser window and select "View source", or paste the following in the address bar:
+    * view-source:https://bl.ocks.org/pbogden/raw/417b72d388a4a8447ee5940e638787d0/
+
+
 
 * [OpenLayers demo (my map)](http://localhost/~pbogden/classes/class-03/)
     * Reference: https://openlayers.org/en/latest/doc/quickstart.html
@@ -63,6 +131,8 @@ Demonstrate how to get a map to a gist and then served from bl.ocks.org
     * [Example page with CSS and JavaScript](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML#Active_learning_applying_CSS_and_JavaScript_to_a_page)
 
 #### Observable to a standalone Web page
+
+We didn't get to this in class, but we will revisit this material later in the course.
 
 * [Downloading and Embedding Notebooks](https://beta.observablehq.com/@jashkenas/downloading-and-embedding-notebooks) -- Observable
     * [Standard Library](https://beta.observablehq.com/@mbostock/standard-library)
