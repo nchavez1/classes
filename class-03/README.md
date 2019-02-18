@@ -41,14 +41,16 @@
           return d.geometry.coordinates[0];
         }
 
-Note: In JavaScript, you operate on an `Array` with `.map()`, whereas the Python
-equivalent involves list comprehensions.  For example, in Python:
+    In this example, you operate on a JavaScript `Array` with `.map()`. The Python
+    equivalent involves list comprehensions.  For example, in Python:
 
-    map(f, iterable)
+        map(f, iterable)
 
-and this is equivalent to:
+    and this is equivalent to:
 
-    [f(x) for x in iterable]
+        [f(x) for x in iterable]
+
+    The next step involves using this approach to visualize the data.  We'll do this by displaying [Earthquakes on Leaflet](#earthquakes-on-leaflet).
 
 #### References:
 
