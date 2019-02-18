@@ -256,7 +256,7 @@ to get a feel for it.
 scatterplot in an Observable notebook that shows latitude (y-axis) and longitude (x-axis) for 
 earthquakes, similar to the homework last week, except show only earthquakes in the northern hemisphere.
 
-2. Create a fork of the class demo [Earthquakes on Leaflet](https://beta.observablehq.com/@pbogden/earthquakes-on-leaflet) display only earthquakes with magnitude exceeding 2.
+2. Create a fork of the class demo [Earthquakes on Leaflet](https://beta.observablehq.com/@pbogden/earthquakes-on-leaflet), modified to display only earthquakes with magnitude exceeding 2.
 
 3. Create another Leaflet map of earthquakes with magnitude below 2.
 
