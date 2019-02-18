@@ -21,16 +21,15 @@
 
         data = d3.json('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_week.geojson');
 
-Both approaches produce the same `data` Object, that is, a JavaScript Object
-representation of the GeoJSON "FeatureCollection" of earthquakes.
+    Both approaches produce the same `data` Object, that is, a JavaScript Object representation of the GeoJSON "FeatureCollection" of earthquakes.
 
 3. Create an `Array` of earthquake Features, `quakes`. Each element of `quakes` is a single GeoJSON Feature:
 
         quakes = data.features;
 
-A JavaScript `Array` is iterable, much like a Python `list`.  
-Iterable data manipulation is a common task when analyzing or visualizing data,
-and we'll use it to process the earthquakes. For example...
+    A JavaScript `Array` is iterable, much like a Python `list`.  
+    Iterative data manipulation is a common task when analyzing or visualizing data,
+    and we'll use it to process the earthquakes. For example...
 
 4. Create an array of earthquake Latitudes
 
