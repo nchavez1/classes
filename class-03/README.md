@@ -27,7 +27,7 @@
 
         quakes = data.features;
 
-    A JavaScript `Array` is iterable, much like a Python `list`. Iterative data manipulation is a common task when analyzing or visualizing data, and we'll use it to process the earthquakes. For example...
+    A JavaScript `Array` is iterable, much like a Python `list`. Iterative data manipulation happens all the time when analyzing or visualizing data, and we'll use it to process the earthquakes. For example...
 
 4. Create an array of earthquake Latitudes
 
