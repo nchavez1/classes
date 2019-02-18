@@ -21,7 +21,7 @@
 
         data = d3.json('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_week.geojson');
 
-    Both approaches produce the same `data` Object, that is, a JavaScript Object representation of the GeoJSON "FeatureCollection" of earthquakes.
+    Both approaches produce the same `data` Object, that is, a JavaScript Object representing the GeoJSON "FeatureCollection" of earthquakes.
 
 3. Create an `Array` of earthquake Features, `quakes`. Each element of `quakes` is a single GeoJSON Feature:
 
@@ -124,7 +124,7 @@ We'll look at 3 different open source libraries for creating slippy maps:
 * [OpenLayers](https://openlayers.org/)
 * [Leflet](https://leafletjs.com/)
 
-Mike Bostock showed how to create a simple slippy map with with D3
+Mike Bostock showed how to create a simple slippy map with D3
 in his [zoomable map tiles](http://bl.ocks.org/mbostock/4132797) demo.
 And Tom MacWright shows how to use OpenLayers and Leaflet in Observable:
 
@@ -139,51 +139,6 @@ have restrictive tile usage policies that limit their use, especially for commer
 For a good example,
 look at the [OpenStreetMap Foundation's tile usage policy](https://operations.osmfoundation.org/policies/tiles/).
 
-1. View all the OpenLayers examples...
-    * https://openlayers.org/en/latest/examples/
-2. Find the OpenLayers earthquake-heatmap example...
-    * https://openlayers.org/en/latest/examples/heatmap-earthquakes.html
-3. Create a gist in your account, for example:
-    * https://gist.github.com/username
-4. Copy the the OpenLayers earthquake heatmap demo a file called `index.html` in the gist,
-    * Create a `README.md` file when you create a gist -- it uses "markdown" to format text
-        * [Github markdown](https://guides.github.com/features/mastering-markdown/)
-        * [markdown example](https://guides.github.com/features/mastering-markdown/#examples)
-    * https://gist.github.com/pbogden/417b72d388a4a8447ee5940e638787d0
-5. Make the following changes to the index.html file
-    * TODO: Indicate the necessary changes in the README.md
-2. View the gist from bl.ocks.org,
-    * In the URL, replace `gist.github.com` with `bl.ocks.org`
-    * https://gist.github.com/pbogden/417b72d388a4a8447ee5940e638787d0
-    * https://bl.ocks.org/pbogden/417b72d388a4a8447ee5940e638787d0
-3. View the standalone web page.
-    * Click the "Open" link to the lower right of the plot on bl.ocks.org, which takes you to
-    * Equivalently, add `/raw` in the URL, immediately following your github username
-    * https://bl.ocks.org/pbogden/raw/417b72d388a4a8447ee5940e638787d0/
-4. View the source HTML for that web page.
-    * Right click on the browser window and select "View source", or paste the following in the address bar:
-    * view-source:https://bl.ocks.org/pbogden/raw/417b72d388a4a8447ee5940e638787d0/
-
-
-
-* [OpenLayers demo (my map)](http://localhost/~pbogden/classes/class-03/)
-    * Reference: https://openlayers.org/en/latest/doc/quickstart.html
-* [Earthquake heatmap demo](http://localhost/~pbogden/classes/class-03/olheat.html) -- OpenLayers
-    * https://openlayers.org/en/latest/examples/heatmap-earthquakes.html -- official example
-    * As a gist: https://gist.github.com/pbogden/417b72d388a4a8447ee5940e638787d0
-    * As a bl.ock: https://bl.ocks.org/pbogden/417b72d388a4a8447ee5940e638787d0
-    * Standalone: Go to the bl.ock and click "Open" right under the map
-* [Observble earthquakes a map with Leaflet)](https://beta.observablehq.com/d/3d0228a3b6eec481) -- PB
-    * [Observable Leaflet](https://beta.observablehq.com/@tmcw/leaflet) -- Tom MacWright
-
-#### Observable to a standalone Web page
-
-We didn't get to this in class, but we will revisit this material later in the course.
-
-* [Downloading and Embedding Notebooks](https://beta.observablehq.com/@jashkenas/downloading-and-embedding-notebooks) -- Observable
-* [Observable standard library](https://github.com/observablehq/stdlib)
-* [Observable runtime]((https://github.com/observablehq/runtime)
-
 ## Slippy map examples
 
 * [Leaflet](https://leafletjs.com/)
@@ -195,7 +150,7 @@ We didn't get to this in class, but we will revisit this material later in the c
     * Nice introduction to Leaflet in Observable
     * Shows how to add a polygon to Leaflet (vector data)
     * Shows how to add a heatmap to Leaflet
-* [Using OpenLayers](https://beta.observablehq.com/@tmcw/using-openlayers) -- Tom MacWright
+* [Observable OpenLayers](https://beta.observablehq.com/@tmcw/using-openlayers) -- Tom MacWright
     * [Hello, OpenLayers!](https://beta.observablehq.com/@mbostock/hello-openlayers) -- Mike Bostock
     * [Hello, OpenLayers Select!](https://beta.observablehq.com/@mbostock/hello-openlayers-select) -- Mike Bostock
     * [Hello, OpenLayers Box Selection!](https://beta.observablehq.com/@mbostock/hello-openlayers-box-selection) -- Mike Bostock
@@ -205,9 +160,6 @@ We didn't get to this in class, but we will revisit this material later in the c
     * [D3 and stamen](https://openlayers.org/en/latest/examples/d3.html) -- official example
     * [ol/layer/Heatmap](https://openlayers.org/en/v5.3.0/apidoc/module-ol_layer_Heatmap.html) -- API docs for v5.3.0
     * [contains](https://openlayers.org/en/latest/apidoc/module-ol_format_filter_Contains-Contains.html)
-* [D3.js API]
-    * [d3.geoContains()](https://github.com/d3/d3-geo/blob/master/README.md#geoContains)
-    * [d3.polygonContains()](https://github.com/d3/d3-geo/blob/master/README.md#geoContains)
 * [Using GeoJSON with Leaflet](https://leafletjs.com/examples/geojson/) -- Leaflet docs
     * [map.getBounds()](https://leafletjs.com/reference-1.4.0.html#map-getbounds)
 
@@ -219,36 +171,14 @@ https://beta.observablehq.com/@pbogden/earthquakes-on-leaflet
 
 Reference: [GeoJSON spec](http://geojson.org/)
 
-## Leaflet dots
-
-    var map = L.map("map");
-    L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(map);
-
-    map.setView([48.85, 2.35], 8);
-
-    var myRenderer = L.canvas({ padding: 0.5 });
-
-    for (var i = 0; i < 100000; i += 1) { // 100k points
-          L.circleMarker(getRandomLatLng(), {
-      	  renderer: myRenderer
-      }).addTo(map).bindPopup('marker ' + i);
-    }
-
-    function getRandomLatLng() {
-	return [
-  	-90 + 180 * Math.random(),
-        -180 + 360 * Math.random()
-      ];
-    }
-
 ## Browsers are asynchronous
 
 Browsers do lots of things asynchronously.
 Otherwise, they'd freeze during things like file downloads.
 Working asynchronously complicates things, especially when we're loading remote data sources.
 The typical (soon to be old-fashioned) way for JavaScript to handle
-asynchronous loads is with callback functions.  For example, early versions of D3
-(before observablehq.com existed) would load the USGS GeoJSON earthquake feed with something like this:
+asynchronous loads is with callback functions.  For example, in Version 4 of D3
+(before observablehq.com existed) you would load the USGS GeoJSON earthquake feed with something like:
 
         var url = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson';
 
@@ -261,19 +191,19 @@ asynchronous loads is with callback functions.  For example, early versions of D
         }
 
 In this example, `processQuakes` is a callback function. It gets called after the GeoJSON is
-loaded and parsed into the `quakes` argument.
-If everything worked okay, the variable `err` is Null (so `(err)` evaluates to `false`).
-Otherwise, "err" is an object that indicates the error, in which case `(err)` evaluates to
-true and the function returns early.
+loaded and parsed into the `quakes` argument, which is a JavaScript Object.
+If everything works okay, the variable `err` is Null (so `(err)` evaluates to `false`).
+Otherwise, `err` is an object that indicates the error that was encountered, in which case `(err)` evaluates to
+true and the function returns early.  
+You can get this V4 D3 code to work in an Observable notebook, but it's not straightforward
+unless all the code is in a single cell.
 
-You can get this code to work in an Observable notebook, but it's not straightforward if
-you're using lots of cells.
-Instead, the slick (modern) way to load data with D3 is described in
+Instead, the slick (modern) way to load data with Version 5 of D3, as described in
 [Introduction to data](https://beta.observablehq.com/@mbostock/introduction-to-data).
 It's slick because the latest version of D3.js
 uses JavaScript's relatively new `Promise` and `fetch` capabilities.
-The JavaScript "Promise" API makes it easier to work with asynchronous values.
-"Promise"s represent values that are not yet known, but that will be known in the future.
+The JavaScript `Promise` API makes it easier to work with asynchronous values.
+`Promise`s represent values that are not yet known, but will be known in the future.
 
 If you're loading JSON, then you don't even need D3.
 The following line does the same thing with JavaScript's built-in JSON parser.
@@ -281,10 +211,10 @@ The following line does the same thing with JavaScript's built-in JSON parser.
     quakes = (await fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson')).json()
 
 The variable `quakes` starts out as a `Promise` and then resolves to a JavaScript
-object representing the GeoJSON FeatureCollection containing all earthquakes in the last hour.
+Object representing the GeoJSON FeatureCollection that contains all earthquakes in the last hour.
 Observable implicitly "awaits" promises across cell boundaries, so you often don’t
 need to deal with a promise directly. Cells can return promises, and other cells
-can simply refer to the values and they’ll run when the promise resolves.
+can simply refer to the values, because they’ll run when the Promise resolves.
 
 #### References:
 
