@@ -252,7 +252,7 @@ We demonstrated Array manipulation with `Array.map()` above.
 Array filtering works similarly. For an example, see: [`Array.filter()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) in MDN docs. You can run some examples there
 to get a feel for it.
 
-1. Starting with a result above in [Working with GeoJSON](#working-with-geojson), create a Plot.ly
+1. Using the data in [Working with GeoJSON](#working-with-geojson), create a Plot.ly
 scatterplot in an Observable notebook that shows latitude (y-axis) and longitude (x-axis) for 
 earthquakes, similar to the homework last week, except show only earthquakes in the northern hemisphere.
 
