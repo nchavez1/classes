@@ -6,10 +6,12 @@
 Mike Bostock "builds tools for for visualizing information", and Observable is his latest creation.
 But he cautions that the tool should not be the goal.
 Rather, the goal should be visualizing information.
-In [A Better Way to Code](https://medium.com/@mbostock/a-better-way-to-code-2b1d2876a3a0),
-he goes one step farther by providing the folling quote from Ben Shneiderman:
+Moreover, in [A Better Way to Code](https://medium.com/@mbostock/a-better-way-to-code-2b1d2876a3a0),
+he provides the following quote from Ben Shneiderman:
 
 > The purpose of visualization is insight, not pictures.
+
+Now that we've gotten a feel for Observable, we'll do the same.
 
 #### Reading:
 
@@ -18,20 +20,6 @@ he goes one step farther by providing the folling quote from Ben Shneiderman:
 ## Class #3 assignments
 
 Observable quakes on leaflet: https://beta.observablehq.com/@pbogden/earthquakes-on-leaflet/
-
-## Active reading
-
-In [A better way to code](https://medium.com/@mbostock/a-better-way-to-code-2b1d2876a3a0), Mike Bostock
-explains how Observable helps to promote "active reading," which is a concept described by Brett Victor
-in [Explorable Explanations](http://worrydream.com/ExplorableExplanations/).
-
-> An active reader asks questions, considers alternatives, questions assumptions,
-> and even questions the trustworthiness of the author.
-> An active reader tries to generalize specific examples, and devise specific examples
-> for generalities. An active reader doesn’t passively sponge up information,
-> but uses the author’s argument as a springboard for critical thought and deep understanding.
-
-In the next demo, we'll use interaction elements to create a visualization that promotes active reading.
 
 ## Using Observable for visualization
 
@@ -119,7 +107,22 @@ Hint: Think about this. If you try it, you might be sorry.
     If you want your Observable notebooks to run in older browsers, you'll need to do some extra work.
     MDN pages typically provide browser compatibility at the bottom of the page.
 
-## Interactive visualization
+## Active reading
+
+In [A better way to code](https://medium.com/@mbostock/a-better-way-to-code-2b1d2876a3a0), Mike Bostock
+explains how Observable helps to promote "active reading," which is a concept described by Brett Victor
+in [Explorable Explanations](http://worrydream.com/ExplorableExplanations/).
+
+> An active reader asks questions, considers alternatives, questions assumptions,
+> and even questions the trustworthiness of the author.
+> An active reader tries to generalize specific examples, and devise specific examples
+> for generalities. An active reader doesn’t passively sponge up information,
+> but uses the author’s argument as a springboard for critical thought and deep understanding.
+
+In the next demo, we'll start using interaction controls to create
+a visualization that promotes active reading.
+
+## Interactive controls for the reader
 
 Observable quakes on leaflet: https://beta.observablehq.com/@pbogden/earthquakes-on-leaflet/
 
