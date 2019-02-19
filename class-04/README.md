@@ -7,7 +7,7 @@ Mike Bostock "builds tools for for visualizing information", and Observable is h
 But he cautions that the tool should not be the goal.
 Rather, the goal should be visualizing information.
 In [A Better Way to Code](https://medium.com/@mbostock/a-better-way-to-code-2b1d2876a3a0),
-he goes one step further and quotes Ben Shneiderman:
+he goes one step farther by providing the folling quote from Ben Shneiderman:
 
 > The purpose of visualization is insight, not pictures.
 
