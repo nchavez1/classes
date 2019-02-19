@@ -21,13 +21,13 @@ Now that we've gotten a feel for Observable, we'll do the same.
 
 Observable quakes on leaflet: https://beta.observablehq.com/@pbogden/earthquakes-on-leaflet/
 
-## Using Observable for visualization
+## Observable visualization
 
 There are quite a few reasons to use Observable for visualization.
 One reason is that Observable "minimizes the specialized knowledge you need to be
 productive" ([Ref](https://medium.com/@mbostock/a-better-way-to-code-2b1d2876a3a0)).
-It is also a "web-first" environment that runs in any browser
-and allows your code for data exploration "gracefully transition into code for
+It is also a "web-first" environment that runs in any browser, which means
+your code for data exploration "can gracefully transition into code for
 explanation." Another reason is because it's interactive.
 
 > Interactive programming improves our ability to scrutinize behavior by poking:
@@ -39,20 +39,20 @@ In other words, Observable is a "reactive" programming environment.
 
 We're used to "imperative" programming in scripting languages like Python
 and JavaScript (R works that way too).
-You may not think you've done reactive programming,
-but you've done reactive programming if you've used a spreadsheet.
-Imperative programming uses variable assignment, and you have to be careful
+Imperative programming uses variable "assignment", and you have to be careful
 about state of a variable because operations are sequential.
 
     let i = 1;
     let x = 0;  // x = 0, i = 1;
-    x = 2 * i;  // x = 2, i = 1; Right now, x = 2, and x == 2 * i
-    ++i         // x = 2, i = 2; Right now, x = 2 but x != 2 * i
+    x = 2 * i;  // x = 2, i = 1; Right now, x = 2 because x = 2 * i and i = 2
+    ++i         // x = 2, i = 2; Now, x = 2 and i = 2, but x != 2 * i anymore
 
+In variable assignment, reactive programming uses variable definition.
+In our example, this means `x = 2 * i` is always true, even if `i` changes.
+You may not think you've done reactive programming before,
+but spreadsheets work this way.
 
-whereas reactive programming uses variable definition.
-
-Time for a demo.
+Time for a demo.  Open an Observable notebook and experiment the following:
 
     i = {
       let i = 0;
@@ -63,8 +63,8 @@ Time for a demo.
 
     \`The current value of 2 * i is ${2 * i}.\`
 
-The `yield` keyword in JavaScript and Python is used to pause and resume a
-generator function. (IE doesn't support `yield`.)
+The `yield` keyword exists in JavaScript and Python.  It is used to pause and
+resume a generator function. (Note however: IE does not support `yield`.)
 
 Q: What happens if you replace "yield" with "return"?
 
