@@ -1,325 +1,169 @@
 
-# Class #3
+# Class #4
 
-## Working with GeoJSON
+## The purpose of visualization
 
-1. First, create an observable notebook.
+Mike Bostock "builds tools for for visualizing information", and Observable is his latest creation.
+As he cautions, the tool should not be the goal.
+In [A Better Way to Code](https://medium.com/@mbostock/a-better-way-to-code-2b1d2876a3a0)),
+Mike Bostock attributes the following quote to Ben Shneiderman:
+productive" ([Ref](https://medium.com/@mbostock/a-better-way-to-code-2b1d2876a3a0)).
 
-2. Then download and work with GeoJSON data from the USGS earthquake feed. You can do this one of two ways.  You can load data into a workbook cell with pure (modern) JavaScript:
+> The purpose of visualization is insight, not pictures.
 
-        quakes = {
-            let response = await fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_week.geojson');
-            let json = await response.json();
-            return json;
-          }
+#### Reading:
 
-    or, you can do the same thing more easily with D3. First load D3 in one cell:
+* [A better way to code](https://medium.com/@mbostock/a-better-way-to-code-2b1d2876a3a0) -- Mike Bostock
 
-        d3 = require('d3');
+## Class #3 assignments
 
-    then load the data in another cell with one line:
+Observable quakes on leaflet: https://beta.observablehq.com/@pbogden/earthquakes-on-leaflet/
 
-        data = d3.json('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_week.geojson');
+## Active reading
 
-    Both approaches produce the same `data` Object, that is, a JavaScript Object representing the GeoJSON "FeatureCollection" of earthquakes.
+In [A better way to code](https://medium.com/@mbostock/a-better-way-to-code-2b1d2876a3a0), Mike Bostock
+explains how Observable helps to promote "active reading," which is a concept described by Brett Victor
+in [Explorable Explanations](http://worrydream.com/ExplorableExplanations/).
 
-3. Create an `Array` of earthquake Features, `quakes`. Each element of `quakes` is a single GeoJSON Feature:
+> An active reader asks questions, considers alternatives, questions assumptions,
+> and even questions the trustworthiness of the author.
+> An active reader tries to generalize specific examples, and devise specific examples
+> for generalities. An active reader doesn’t passively sponge up information,
+> but uses the author’s argument as a springboard for critical thought and deep understanding.
 
-        quakes = data.features;
+In the next demo, we'll use interaction elements to create a visualization that promotes active reading.
 
-    A JavaScript `Array` is iterable, much like a Python `list`. Iterative data manipulation happens all the time when analyzing or visualizing data, and we'll use it to process the earthquakes. For example...
+## Using Observable for visualization
 
-4. Create an array of earthquake Latitudes
+There are quite a few reasons to use Observable for visualization.
+One reason is that Observable "minimizes the specialized knowledge you need to be
+productive" ([Ref](https://medium.com/@mbostock/a-better-way-to-code-2b1d2876a3a0)).
+It is also a "web-first" environment that runs in any browser
+and allows your code for data exploration "gracefully transition into code for
+explanation." Another reason is because it's interactive.
 
-        lats = quakes.map(function(d) { return d.geometry.coordinates[0]; });
+> Interactive programming improves our ability to scrutinize behavior by poking:
+> changing, deleting, reordering code, and seeing what happens.
 
-    This expression uses `Array.map()` to create a new array with the result of calling a function
-    on every element in the array.
-    That function is the argument of `.map()`, namely,
+In other words, Observable is a "reactive" programming environment.
 
-        function(d) {
-          return d.geometry.coordinates[0];
-        }
+## Reactive programming
 
-    In this example, you operate on a JavaScript `Array` with `.map()`. The Python
-    equivalent involves list comprehensions.  For example, in Python:
+We're used to "imperative" programming in scripting languages like Python
+and JavaScript (R works that way too).
+You may not think you've done reactive programming,
+but you've done reactive programming if you've used a spreadsheet.
+Imperative programming uses variable assignment, and you have to be careful
+about state of a variable because operations are sequential.
 
-        map(f, iterable)
+    let i = 1;
+    let x = 0;  // x = 0, i = 1;
+    x = 2 * i;  // x = 2, i = 1; Right now, x = 2, and x == 2 * i
+    ++i         // x = 2, i = 2; Right now, x = 2 but x != 2 * i
 
-    and this is equivalent to:
 
-        [f(x) for x in iterable]
+whereas reactive programming uses variable definition.
 
-    The next step involves using this approach to visualize the data.  We'll do this by displaying [Earthquakes on Leaflet](#earthquakes-on-leaflet).
+Time for a demo.
 
-#### References:
+    i = {
+      let i = 0;
+      while (true) {
+        yield ++i;
+      }
+    }
 
-* [GeoJSON](http://geojson.org/) -- Official specification
-* [USGS GeoJSON Format](http://geojson.org/) -- USGS documentation with links to various earthquake feeds.
-* [JavaScript `map()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) -- MDN docs
-* [Arrays in D3](https://github.com/d3/d3/blob/master/API.md) -- API Reference
-    * [d3-array](https://github.com/d3/d3-array) -- Detailed API reference for array manipulation in D3
-    * This reference includes a nice summary of all "built-in" mutation methods for arrays.
-    * D3 adds functionality that resembles many elements of Python's numpy.
+    \`The current value of 2 * i is ${2 * i}.\`
 
-## Intro to HTML5
+The `yield` keyword in JavaScript and Python is used to pause and resume a
+generator function. (IE doesn't support `yield`.)
 
-HTML is an evolving specification. In the early days of the Web, it was an XML specification for web page content.
-But HTML5 (HTML version 5, initially released in 2014) is a modern version of HTML that includes
-a range of technologies that extend well beyond standard HTML.
-Experiment with the [HTML Examples](https://www.w3schools.com/html/html_examples.asp) to get an idea
-of a basic HTML document, as well as some HTML5 basics.
+Q: What happens if you replace "yield" with "return"?
 
-* [HTML Examples](https://www.w3schools.com/html/html_examples.asp) -- W3Schools
-    * [HTML Document](https://www.w3schools.com/html/tryit.asp?filename=tryhtml_basic_document) -- basics
-    * [HTML `id` attribute](https://www.w3schools.com/html/tryit.asp?filename=tryhtml_id_css) -- identify individual elements
-    * [HTML scripts](https://www.w3schools.com/html/tryit.asp?filename=tryhtml_script) -- adding JavaScript to an HTML page
-    * [HTML canvas](https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_canvas_tut_path2) -- raster
-    * [HTML SVG](https://www.w3schools.com/html/tryit.asp?filename=tryhtml_svg_circle) -- vector
+Q: What would happen if you tried to do things sequentially
+by first creating the values in an Array, and then you returning the Array
+so that the array could be processed in another cell?
 
-Compare the SVG (vector) and canvas (raster) examples. Experiment with the following to style the canvas demo...
+    result = {
+      let i = 0;
+      let a = [];
+      while (true) {
+        a.push(++i);
+      }
+      return a;
+    }
 
-    ctx.fillStyle='yellow';
-    ctx.fill();
-    ctx.strokeStyle="green";
-    ctx.lineWidth=4;
+Hint: Think about this. If you try it, you might be sorry.
 
-#### Additional references
+* Reading:
+    * [Five-minute introduction](https://beta.observablehq.com/@mbostock/five-minute-introduction)
+* References:
+    * [Generator functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators#Generator_functions) -- MDN docs
+    * [function*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) -- MDN docs
 
-* [Introduction to HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started) -- MDN
-    * [The head metadata in HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML)
-    * [Example page with CSS and JavaScript](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML#Active_learning_applying_CSS_and_JavaScript_to_a_page)
-* [HTML validator](https://validator.w3.org/nu/#textarea)
-    * You can omit the `<html>`, `<head>` and `<body>` tags, but beware because older browsers may break.
-* [HTML5 Boilerplate](https://html5boilerplate.com/)
-    * An authoritative resource for best practices, but way beyond the scope of this course.
+## Generators
 
-## HTML Bar Chart
+    (Repeated from last class): Observable uses the most modern browser capabilities, such as Promises and Generators.  
+    Generators enable communication between Observable cells, allowing shared values to be updated dynamically.
+    The key JavaScript elements, which you'll see from time to time, include:
 
-The excellent [Let's Make a Bar Chart](https://bost.ocks.org/mike/bar/) series shows how
-to create a bar chart with D3.
-Look at the first section, which shows how to create a rudimentary bar chart "manually".
-It uses only HTML and basic styling with CSS.
+    * `function*` -- declaration defines a "generator function", which returns a "Generator" object
+    * `Generator` -- an object that conforms to the `iterable` and `iterator` protocols
+        * `Generator.prototype.next()` -- returns the value yielded by the "yield" expression
+        * `Generator.prototype.return()` -- as `.next()` and also finishes generator
+        * `Generator.prototype.throw()` -- throws an error to a generator (and finishes the generator, unless it's caught)
+    * `yield` -- used to pause/resume a generator function
 
-* [Let's Make a Bar Chart](https://bost.ocks.org/mike/bar/) -- by Mike Bostock
-    * [Coding the chart manually](https://bost.ocks.org/mike/bar/#manual)
+    Older browsers (e.g., IE) don't know about Generators, or Promises, or
+    many of the other cool things built into Observable.
+    If you want your Observable notebooks to run in older browsers, you'll need to do some extra work.
+    MDN pages typically provide browser compatibility at the bottom of the page.
 
-This should start to give you a sense for the power of HTML5 in representing data.
-It should also give you a sense that coding everything "manually" would be arduous.
+## Interactive visualization
 
-This course shows you how to use JavaScript and various open source JavaScript libraries
-for practical data manipulation and visualization.
-We will cover some of the basics of HTML5,
-and you should be aware that under the hood they all use HTML5.
-But you won't need to learn the extensive nuts and bolts of HTML5.
+Observable quakes on leaflet: https://beta.observablehq.com/@pbogden/earthquakes-on-leaflet/
 
-## Slippy maps
+* TODO: Introduce a slider to solve the homework assignment for Class #3
+    * Use this to develop some insights about the data
+    * Overall pattern -- plate tectonics
+    * Space vs magnitude -- western/eastern hemisphere (as per homework assignment)
+    * Space vs time -- Oklahoma
 
-[Tiled web maps](https://en.wikipedia.org/wiki/Tiled_web_map), such as Google Maps,
-are often referred to as ["slippy maps"](https://wiki.openstreetmap.org/wiki/Slippy_Map).
-Their web interfaces let you pan and zoom tiles with your mouse or finger.
-We'll look at 3 different open source libraries for creating slippy maps:
+## Earthquake Heatmap
 
-* [D3](https://d3js.org/)
-* [OpenLayers](https://openlayers.org/)
-* [Leflet](https://leafletjs.com/)
+* Consider the caveat about heatmaps in [Observable Leaflet](https://beta.observablehq.com/@tmcw/leaflet)
+* TODO: Adapt earthquakes dots on Leaflet to create a heatmap
+* Look at the data-processing step in [Observable Leaflet](https://beta.observablehq.com/@tmcw/leaflet)
+* Look at the metro pattern
 
-Mike Bostock showed how to create a simple slippy map with D3
-in his [zoomable map tiles](http://bl.ocks.org/mbostock/4132797) demo.
-And Tom MacWright shows how to use OpenLayers and Leaflet in Observable:
+#### References
 
-* [Using OpenLayers](https://beta.observablehq.com/@tmcw/using-openlayers)
-* [Using Leaflet](https://beta.observablehq.com/@tmcw/leaflet)
-
-All tiled web maps require a web server to provide the tiles, which are typically simple PNGs.
-Many tile services use [OpenStreetMap](https://www.openstreetmap.org/copyright) data,
-and many demos we'll see in class use free map tile services.
-But you should be careful when adapting these demos in practice because tile services often
-have restrictive tile usage policies that limit their use, especially for commercial purposes.
-For a good example,
-look at the [OpenStreetMap Foundation's tile usage policy](https://operations.osmfoundation.org/policies/tiles/).
-
-## Earthquake heatmap
-
-NOTE: The instructions below need to be revised.  The OpenLayers example code changed recently.
-
-1. View all the OpenLayers examples...
-    * https://openlayers.org/en/latest/examples/
-2. Find the OpenLayers earthquake-heatmap example...
-    * https://openlayers.org/en/latest/examples/heatmap-earthquakes.html
-3. Create a gist in your account, for example:
-    * https://gist.github.com/username
-4. Copy the the OpenLayers earthquake heatmap demo a file called `index.html` in the gist,
-    * Create a `README.md` file when you create a gist -- it uses "markdown" to format text
-        * [Github markdown](https://guides.github.com/features/mastering-markdown/)
-        * [markdown example](https://guides.github.com/features/mastering-markdown/#examples)
-    * https://gist.github.com/pbogden/417b72d388a4a8447ee5940e638787d0
-5. Make the following changes to the index.html file
-    * TODO: Indicate the necessary changes in the README.md
-2. View the gist from bl.ocks.org,
-    * In the URL, replace `gist.github.com` with `bl.ocks.org`
-    * https://gist.github.com/pbogden/417b72d388a4a8447ee5940e638787d0
-    * https://bl.ocks.org/pbogden/417b72d388a4a8447ee5940e638787d0
-3. View the standalone web page.
-    * Click the "Open" link to the lower right of the plot on bl.ocks.org, which takes you to
-    * Equivalently, add `/raw` in the URL, immediately following your github username
-    * https://bl.ocks.org/pbogden/raw/417b72d388a4a8447ee5940e638787d0/
-4. View the source HTML for that web page.
-    * Right click on the browser window and select "View source", or paste the following in the address bar:
-    * view-source:https://bl.ocks.org/pbogden/raw/417b72d388a4a8447ee5940e638787d0/
-
-## Earthquakes on a Map
-
-* [Observble earthquakes a map with Leaflet)](https://beta.observablehq.com/d/3d0228a3b6eec481) -- PB
-    * [Observable Leaflet](https://beta.observablehq.com/@tmcw/leaflet) -- Tom MacWright
-
-#### From Observable to a standalone Web page
-
-We didn't get to this in class, but we will revisit this material later in the course.
-
-* [Downloading and Embedding Notebooks](https://beta.observablehq.com/@jashkenas/downloading-and-embedding-notebooks) -- Observable
-* [Observable standard library](https://github.com/observablehq/stdlib)
-* [Observable runtime]((https://github.com/observablehq/runtime)
-
-## Slippy map examples
-
-* [Leaflet](https://leafletjs.com/)
-    * [Leaflet examples](https://leafletjs.com/examples.html)
-    * [Using GeoJSON with Leaflet](https://leafletjs.com/examples/geojson/)
-    * [Leaflet API reference](https://leafletjs.com/reference-1.4.0.html)
-    * [Leaflet | Mapbox](https://docs.mapbox.com/help/glossary/leaflet/)
 * [Observable Leaflet](https://beta.observablehq.com/@tmcw/leaflet) -- Tom MacWright
-    * Nice introduction to Leaflet in Observable
-    * Shows how to add a polygon to Leaflet (vector data)
-    * Shows how to add a heatmap to Leaflet
-* [Using OpenLayers](https://beta.observablehq.com/@tmcw/using-openlayers) -- Tom MacWright
-    * [Hello, OpenLayers!](https://beta.observablehq.com/@mbostock/hello-openlayers) -- Mike Bostock
-    * [Hello, OpenLayers Select!](https://beta.observablehq.com/@mbostock/hello-openlayers-select) -- Mike Bostock
-    * [Hello, OpenLayers Box Selection!](https://beta.observablehq.com/@mbostock/hello-openlayers-box-selection) -- Mike Bostock
-* [OpenLayers](https://openlayers.org/)
-    * [Download](https://openlayers.org/download/) -- several ways of getting the code
-    * [earthquake heatmap](https://openlayers.org/en/v4.6.5/examples/heatmap-earthquakes.html) -- official example
-    * [D3 and stamen](https://openlayers.org/en/latest/examples/d3.html) -- official example
-    * [ol/layer/Heatmap](https://openlayers.org/en/v5.3.0/apidoc/module-ol_layer_Heatmap.html) -- API docs for v5.3.0
-    * [contains](https://openlayers.org/en/latest/apidoc/module-ol_format_filter_Contains-Contains.html)
-* [D3.js API]
-    * [d3.geoContains()](https://github.com/d3/d3-geo/blob/master/README.md#geoContains)
-    * [d3.polygonContains()](https://github.com/d3/d3-geo/blob/master/README.md#geoContains)
-* [Using GeoJSON with Leaflet](https://leafletjs.com/examples/geojson/) -- Leaflet docs
-    * [map.getBounds()](https://leafletjs.com/reference-1.4.0.html#map-getbounds)
-
-## Earthquakes on Leaflet
-
-This Observable notebook shows how to put the GeoJSON earthquake feed on a map...
-
-https://beta.observablehq.com/@pbogden/earthquakes-on-leaflet
-
-Reference: [GeoJSON spec](http://geojson.org/)
-
-## Leaflet dots
-
-    var map = L.map("map");
-    L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(map);
-
-    map.setView([48.85, 2.35], 8);
-
-    var myRenderer = L.canvas({ padding: 0.5 });
-
-    for (var i = 0; i < 100000; i += 1) { // 100k points
-          L.circleMarker(getRandomLatLng(), {
-      	  renderer: myRenderer
-      }).addTo(map).bindPopup('marker ' + i);
-    }
-
-    function getRandomLatLng() {
-	return [
-  	-90 + 180 * Math.random(),
-        -180 + 360 * Math.random()
-      ];
-    }
-
-## Browsers are asynchronous
-
-Browsers do lots of things asynchronously.
-Otherwise, they'd freeze during things like file downloads.
-Working asynchronously complicates things, especially when we're loading remote data sources.
-The typical (soon to be old-fashioned) way for JavaScript to handle
-asynchronous loads is with callback functions.  For example, early versions of D3
-(before observablehq.com existed) would load the USGS GeoJSON earthquake feed with something like this:
-
-        var url = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson';
-
-        d3.json(url, processQuakes);
-
-        function processQuakes(err, quakes) {
-          if (err) return console.log('Error loading quake data', err);
-
-          console.log('# of quakes in the last hour:', quakes.features.length);
-        }
-
-In this example, `processQuakes` is a callback function. It gets called after the GeoJSON is
-loaded and parsed into the `quakes` argument.
-If everything worked okay, the variable `err` is Null (so `(err)` evaluates to `false`).
-Otherwise, "err" is an object that indicates the error, in which case `(err)` evaluates to
-true and the function returns early.
-
-You can get this code to work in an Observable notebook, but it's not straightforward if
-you're using lots of cells.
-Instead, the slick (modern) way to load data with D3 is described in
-[Introduction to data](https://beta.observablehq.com/@mbostock/introduction-to-data).
-It's slick because the latest version of D3.js
-uses JavaScript's relatively new `Promise` and `fetch` capabilities.
-The JavaScript "Promise" API makes it easier to work with asynchronous values.
-"Promise"s represent values that are not yet known, but that will be known in the future.
-
-If you're loading JSON, then you don't even need D3.
-The following line does the same thing with JavaScript's built-in JSON parser.
-
-    quakes = (await fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson')).json()
-
-The variable `quakes` starts out as a `Promise` and then resolves to a JavaScript
-object representing the GeoJSON FeatureCollection containing all earthquakes in the last hour.
-Observable implicitly "awaits" promises across cell boundaries, so you often don’t
-need to deal with a promise directly. Cells can return promises, and other cells
-can simply refer to the values and they’ll run when the promise resolves.
-
-#### References:
+    * Shows how to do heatmap for DC crime that has been curated by Esri
+* [Leaflet.heat](https://github.com/Leaflet/Leaflet.heat) -- Leaflet Heatmap Plugin
 
 * [Introduction to Data](https://beta.observablehq.com/@mbostock/introduction-to-data) -- Mike Bostock
 * [Introduction to Promises](https://beta.observablehq.com/@mbostock/introduction-to-promises) -- Mike Bostock
 * [Observable standard library](https://github.com/observablehq/stdlib/blob/master/README.md)
 
-## Browsers evolve
-
-Observable uses the most modern browser capabilities, such as Promises and Generators.  
-Generators are the things that allow Observable cells to communicate and update their shared values dynamically.
-The key JavaScript elements, which you'll see from time to time, include:
-
-* `function*` -- declaration defines a "generator function", which returns a "Generator" object
-* `Generator` -- an object that conforms to the `iterable` and `iterator` protocols
-    * `Generator.prototype.next()` -- returns the value yielded by the "yield" expression
-    * `Generator.prototype.return()` -- as `.next()` and also finishes generator
-    * `Generator.prototype.throw()` -- throws an error to a generator (and finishes the generator, unless it's caught)
-* `yield` -- used to pause/resume a generator function
-
-Older browsers (e.g., IE) don't know about Generators, or Promises, or
-many of the other cool things built into Observable.
-If you want your Observable notebooks to run in older browsers, you'll need to do some extra work.
-MDN pages typically provide browser compatibility at the bottom of the page.
-
 #### References
 
 * [Introduction to Generators](https://beta.observablehq.com/@mbostock/introduction-to-generators) -- Mike Bostock
-* [function\*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function\*) -- MDN docs
+* [function*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) -- MDN docs
 * [Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator) -- MDN docs
 
-## Class #3 Assignment
+## Chloropleth maps
 
-We demonstrated Array manipulation with `Array.map()` above.
-Array filtering works similarly. For an example, see: [`Array.filter()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) in MDN docs.
+* Compare Plotly and D3.js examples
+* (Maybe not this class.)
 
-1. Starting with a result above in [Working with GeoJSON](#working-with-json), create second
-an Observable notebook scatterplot of latitude (y-axis) for earthquakes in the northern
-hemisphere.
+## Project ideas
 
-2. Print
+* Look at Census data
+* Explain the patterns in heatmap of crime: https://beta.observablehq.com/@tmcw/leaflet
+    * [Metro locations as JSON](https://developer.wmata.com/docs/services/5476364f031f590f38092507/operations/5476364f031f5909e4fe3311)
+    * Is there a better way to visualize the data distribution?
+
+## Class #4 Assignment
+
+* Investigate alternative visualizations of the crime data that mitigate stated concerns about heatmaps
