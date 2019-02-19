@@ -38,9 +38,25 @@ Time for a demo.
 
     \`The current value of i is ${i}.\`
 
+The `yield` keyword in JavaScript and Python is used to pause and resume a
+generator function. (IE doesn't support `yield`.)
+
 Q: What happens if you replace "yield" with "return"?
 
-Q: What happens if you try to create all of the values in an Array and return the Array?
+Q: What would happen if you tried to do things sequentially
+by first creating the values in an Array, and then you returning the Array
+so that the array could be processed in another cell?
+
+    result = {
+      let i = 0;
+      let a = [];
+      while (true) {
+        a.push(++i);
+      }
+      return a;
+    }
+
+Hint: Think about this. If you try it, you might be sorry.
 
 * Reading:
     * [Five-minute introduction](https://beta.observablehq.com/@mbostock/five-minute-introduction)
