@@ -5,26 +5,51 @@
 
 Mike Bostock "builds tools for for visualizing information", and Observable is his latest creation.
 As he cautions, the tool should not be the goal.
-Our goal is embodied in a quote that Bostock attributes to Ben Shneiderman:
+In [A Better Way to Code](https://medium.com/@mbostock/a-better-way-to-code-2b1d2876a3a0)),
+Mike Bostock attributes the following quote to Ben Shneiderman:
+productive" ([Ref](https://medium.com/@mbostock/a-better-way-to-code-2b1d2876a3a0)).
 
 > The purpose of visualization is insight, not pictures.
 
-## The purpose of Observable
+## Visualizing USGS earthquakes
 
-We're using Observable because it is a web-first environment for visualization
-that "minimizes the specialized knowledge you need to be productive" ([Ref](https://medium.com/@mbostock/a-better-way-to-code-2b1d2876a3a0))
+Observable quakes on leaflet: https://beta.observablehq.com/@pbogden/earthquakes-on-leaflet/
 
-Part of what minimizes the need for specialized knowledge is the fact that
-Observable is a "reactive" programming environment.
-In other words, it's interactive.
+* TODO: Introduce a slider to solve the homework assignment for Class #3
+    * Use this to develop some insights about the data
+    * Overall pattern -- plate tectonics
+    * Space vs magnitude -- western/eastern hemisphere (as per homework assignment)
+    * Space vs time -- Oklahoma
+
+## Using Observable for visualization
+
+There are quite a few reasons to use Observable for visualization.
+One reason is that Observable "minimizes the specialized knowledge you need to be
+productive" ([Ref](https://medium.com/@mbostock/a-better-way-to-code-2b1d2876a3a0)).
+It is also a "web-first" environment that runs in any browser
+and allows your code for data exploration "gracefully transition into code for
+explanation." Another reason is because it's interactive.
 
 > Interactive programming improves our ability to scrutinize behavior by poking:
 > changing, deleting, reordering code, and seeing what happens.
 
-We're all used to "imperative" programming in scripting languages like Python
+In other words, Observable is a "reactive" programming environment.
+
+## Reactive programming
+
+We're used to "imperative" programming in scripting languages like Python
 and JavaScript (R works that way too).
-You may not think you've done reactive programming, but spreadsheets are reactive.
-Imperative programming uses variable assignment,
+You may not think you've done reactive programming,
+but you've done reactive programming if you've used a spreadsheet.
+Imperative programming uses variable assignment, and you have to be careful
+about state of a variable because operations are sequential.
+
+    let i = 1;
+    let x = 0;  // x = 0, i = 1;
+    x = 2 * i;  // x = 2, i = 1; Right now, x = 2, and x == 2 * i
+    ++i         // x = 2, i = 2; Right now, x = 2 but x != 2 * i
+
+
 whereas reactive programming uses variable definition.
 
 Time for a demo.
@@ -36,7 +61,7 @@ Time for a demo.
       }
     }
 
-    \`The current value of i is ${i}.\`
+    \`The current value of 2 * i is ${2 * i}.\`
 
 The `yield` keyword in JavaScript and Python is used to pause and resume a
 generator function. (IE doesn't support `yield`.)
@@ -65,7 +90,19 @@ Hint: Think about this. If you try it, you might be sorry.
     * [Generator functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators#Generator_functions) -- MDN docs
     * [function*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) -- MDN docs
 
-## Working with GeoJSON
+## Active reading
+
+In [A better way to code](https://medium.com/@mbostock/a-better-way-to-code-2b1d2876a3a0), Mike Bostock
+explains how Observable helps to promote "active reading," which is a concept described by
+[Explorable Explanations](http://worrydream.com/ExplorableExplanations/) by Brett Victor.
+
+> An active reader asks questions, considers alternatives, questions assumptions,
+> and even questions the trustworthiness of the author.
+> An active reader tries to generalize specific examples, and devise specific examples
+> for generalities. An active reader doesn’t passively sponge up information,
+> but uses the author’s argument as a springboard for critical thought and deep understanding.
+
+## Interactive visualization
 
 Observable quakes on leaflet: https://beta.observablehq.com/@pbogden/earthquakes-on-leaflet/
 
