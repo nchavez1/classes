@@ -11,15 +11,27 @@ productive" ([Ref](https://medium.com/@mbostock/a-better-way-to-code-2b1d2876a3a
 
 > The purpose of visualization is insight, not pictures.
 
-## Visualizing USGS earthquakes
+#### Reading:
+
+* [A better way to code](https://medium.com/@mbostock/a-better-way-to-code-2b1d2876a3a0) -- Mike Bostock
+
+## Class #3 assignments
 
 Observable quakes on leaflet: https://beta.observablehq.com/@pbogden/earthquakes-on-leaflet/
 
-* TODO: Introduce a slider to solve the homework assignment for Class #3
-    * Use this to develop some insights about the data
-    * Overall pattern -- plate tectonics
-    * Space vs magnitude -- western/eastern hemisphere (as per homework assignment)
-    * Space vs time -- Oklahoma
+## Active reading
+
+In [A better way to code](https://medium.com/@mbostock/a-better-way-to-code-2b1d2876a3a0), Mike Bostock
+explains how Observable helps to promote "active reading," which is a concept described by Brett Victor
+in [Explorable Explanations](http://worrydream.com/ExplorableExplanations/).
+
+> An active reader asks questions, considers alternatives, questions assumptions,
+> and even questions the trustworthiness of the author.
+> An active reader tries to generalize specific examples, and devise specific examples
+> for generalities. An active reader doesn’t passively sponge up information,
+> but uses the author’s argument as a springboard for critical thought and deep understanding.
+
+In the next demo, we'll use interaction elements to create a visualization that promotes active reading.
 
 ## Using Observable for visualization
 
@@ -85,22 +97,27 @@ Hint: Think about this. If you try it, you might be sorry.
 
 * Reading:
     * [Five-minute introduction](https://beta.observablehq.com/@mbostock/five-minute-introduction)
-    * [A better way to code](https://medium.com/@mbostock/a-better-way-to-code-2b1d2876a3a0) -- Mike Bostock
 * References:
     * [Generator functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators#Generator_functions) -- MDN docs
     * [function*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) -- MDN docs
 
-## Active reading
+## Generators
 
-In [A better way to code](https://medium.com/@mbostock/a-better-way-to-code-2b1d2876a3a0), Mike Bostock
-explains how Observable helps to promote "active reading," which is a concept described by
-[Explorable Explanations](http://worrydream.com/ExplorableExplanations/) by Brett Victor.
+    (Repeated from last class): Observable uses the most modern browser capabilities, such as Promises and Generators.  
+    Generators enable communication between Observable cells, allowing shared values to be updated dynamically.
+    The key JavaScript elements, which you'll see from time to time, include:
 
-> An active reader asks questions, considers alternatives, questions assumptions,
-> and even questions the trustworthiness of the author.
-> An active reader tries to generalize specific examples, and devise specific examples
-> for generalities. An active reader doesn’t passively sponge up information,
-> but uses the author’s argument as a springboard for critical thought and deep understanding.
+    * `function*` -- declaration defines a "generator function", which returns a "Generator" object
+    * `Generator` -- an object that conforms to the `iterable` and `iterator` protocols
+        * `Generator.prototype.next()` -- returns the value yielded by the "yield" expression
+        * `Generator.prototype.return()` -- as `.next()` and also finishes generator
+        * `Generator.prototype.throw()` -- throws an error to a generator (and finishes the generator, unless it's caught)
+    * `yield` -- used to pause/resume a generator function
+
+    Older browsers (e.g., IE) don't know about Generators, or Promises, or
+    many of the other cool things built into Observable.
+    If you want your Observable notebooks to run in older browsers, you'll need to do some extra work.
+    MDN pages typically provide browser compatibility at the bottom of the page.
 
 ## Interactive visualization
 
@@ -114,9 +131,9 @@ Observable quakes on leaflet: https://beta.observablehq.com/@pbogden/earthquakes
 
 ## Earthquake Heatmap
 
+* Consider the caveat about heatmaps in [Observable Leaflet](https://beta.observablehq.com/@tmcw/leaflet)
 * TODO: Adapt earthquakes dots on Leaflet to create a heatmap
-* Look at the processing step in [Observable Leaflet](https://beta.observablehq.com/@tmcw/leaflet)
-* Consider the caveat concerning heatmaps
+* Look at the data-processing step in [Observable Leaflet](https://beta.observablehq.com/@tmcw/leaflet)
 * Look at the metro pattern
 
 #### References
@@ -129,24 +146,6 @@ Observable quakes on leaflet: https://beta.observablehq.com/@pbogden/earthquakes
 * [Introduction to Promises](https://beta.observablehq.com/@mbostock/introduction-to-promises) -- Mike Bostock
 * [Observable standard library](https://github.com/observablehq/stdlib/blob/master/README.md)
 
-## Generators
-
-(Repeated from last time): Observable uses the most modern browser capabilities, such as Promises and Generators.  
-Generators enable communication between Observable cells, allowing shared values to be updated dynamically.
-The key JavaScript elements, which you'll see from time to time, include:
-
-* `function*` -- declaration defines a "generator function", which returns a "Generator" object
-* `Generator` -- an object that conforms to the `iterable` and `iterator` protocols
-    * `Generator.prototype.next()` -- returns the value yielded by the "yield" expression
-    * `Generator.prototype.return()` -- as `.next()` and also finishes generator
-    * `Generator.prototype.throw()` -- throws an error to a generator (and finishes the generator, unless it's caught)
-* `yield` -- used to pause/resume a generator function
-
-Older browsers (e.g., IE) don't know about Generators, or Promises, or
-many of the other cool things built into Observable.
-If you want your Observable notebooks to run in older browsers, you'll need to do some extra work.
-MDN pages typically provide browser compatibility at the bottom of the page.
-
 #### References
 
 * [Introduction to Generators](https://beta.observablehq.com/@mbostock/introduction-to-generators) -- Mike Bostock
@@ -156,6 +155,7 @@ MDN pages typically provide browser compatibility at the bottom of the page.
 ## Chloropleth maps
 
 * Compare Plotly and D3.js examples
+* (Maybe not this class.)
 
 ## Project ideas
 
@@ -165,3 +165,5 @@ MDN pages typically provide browser compatibility at the bottom of the page.
     * Is there a better way to visualize the data distribution?
 
 ## Class #4 Assignment
+
+* Investigate alternative visualizations of the crime data that mitigate stated concerns about heatmaps
