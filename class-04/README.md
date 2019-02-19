@@ -40,19 +40,19 @@ In other words, Observable is a "reactive" programming environment.
 We're used to "imperative" programming in scripting languages like Python
 and JavaScript (R works that way too).
 Imperative programming uses variable "assignment", and you have to be careful
-about state of a variable because operations are sequential.
+about [state](https://en.wikipedia.org/wiki/State_(computer_science)) because operations are sequential.
 
     let i = 1;
     let x = 0;  // x = 0, i = 1;
     x = 2 * i;  // x = 2, i = 1; Right now, x = 2 because x = 2 * i and i = 2
     ++i         // x = 2, i = 2; Now, x = 2 and i = 2, but x != 2 * i anymore
 
-In variable assignment, reactive programming uses variable definition.
-In our example, this means `x = 2 * i` is always true, even if `i` changes.
+Instead of variable assignment, reactive programming uses variable definition.
+In our example, this would mean that `x = 2 * i` is always true, even if `i` changes.
 You may not think you've done reactive programming before,
-but spreadsheets work this way.
+but spreadsheets work this way.  Time for a demo.  
 
-Time for a demo.  Open an Observable notebook and experiment the following:
+Open an Observable notebook and experiment the following two cells:
 
     i = {
       let i = 0;
@@ -68,9 +68,9 @@ resume a generator function. (Note however: IE does not support `yield`.)
 
 Q: What happens if you replace "yield" with "return"?
 
-Q: What would happen if you tried to do things sequentially
-by first creating the values in an Array, and then you returning the Array
-so that the array could be processed in another cell?
+Q: What would happen if you tried to do everything sequentially
+by first creating the values all the values of `i` in an Array, and then 
+returning the Array so could be processed in another cell?
 
     result = {
       let i = 0;
@@ -81,7 +81,7 @@ so that the array could be processed in another cell?
       return a;
     }
 
-Hint: Think about this. If you try it, you might be sorry.
+Hint: Think about this first. If you actually try it, you might be sorry.
 
 * Reading:
     * [Five-minute introduction](https://beta.observablehq.com/@mbostock/five-minute-introduction)
