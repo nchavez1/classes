@@ -141,6 +141,20 @@ Observable quakes on leaflet: https://beta.observablehq.com/@pbogden/earthquakes
 * [Observable Leaflet](https://beta.observablehq.com/@tmcw/leaflet) -- Tom MacWright
     * Shows how to do heatmap for DC crime that has been curated by Esri
 * [Leaflet.heat](https://github.com/Leaflet/Leaflet.heat) -- Leaflet Heatmap Plugin
+* [D3 + Leaflet](https://bost.ocks.org/mike/leaflet/) -- Mike Bostock (2012)
+    * This uses Leaflet v0.7 (vector overlay disappears temporarily on zoom)
+* [Interactive Chloropleth map](https://leafletjs.com/examples/choropleth/) -- Leaflet docs
+    * This uses Leaflet v1.4 (huge improvement over D3 + Leaflet)
+    * Shows how to interact with features -- nice!
+
+* [Leaflet tutorials](https://leafletjs.com/examples.html) -- Leaflet docs
+    * [Using GeoJSON with Leaflet](https://leafletjs.com/examples/geojson/)
+    * [Leaflet extension methods](https://leafletjs.com/examples/extending/extending-2-layers.html)
+    * [Working with map panes](https://leafletjs.com/examples/map-panes/)
+    * [Zoom levels](https://leafletjs.com/examples/zoom-levels/)
+* [Interact with marker layer](https://stackoverflow.com/questions/13004226/how-to-interact-with-leaflet-marker-layer-from-outside-the-map) -- stackoverflow (2016)
+* [Assign id to marker in Leaflet](https://stackoverflow.com/questions/25683871/assign-id-to-marker-in-leaflet) -- stackoverflow (2015)
+* [L.stamp recommendation](https://github.com/Leaflet/Leaflet/issues/1805#issuecomment-257128259) -- github (2016)
 
 * [Introduction to Data](https://beta.observablehq.com/@mbostock/introduction-to-data) -- Mike Bostock
 * [Introduction to Promises](https://beta.observablehq.com/@mbostock/introduction-to-promises) -- Mike Bostock
