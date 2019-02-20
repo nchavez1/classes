@@ -4,12 +4,14 @@
 ## The purpose of visualization
 
 Mike Bostock "builds tools for for visualizing information", and Observable is his latest creation.
-As he cautions, the tool should not be the goal.
-In [A Better Way to Code](https://medium.com/@mbostock/a-better-way-to-code-2b1d2876a3a0)),
-Mike Bostock attributes the following quote to Ben Shneiderman:
-productive" ([Ref](https://medium.com/@mbostock/a-better-way-to-code-2b1d2876a3a0)).
+But he cautions that the tool should not be the goal.
+Rather, the goal should be visualizing information.
+Moreover, in [A Better Way to Code](https://medium.com/@mbostock/a-better-way-to-code-2b1d2876a3a0),
+he provides the following quote from Ben Shneiderman:
 
 > The purpose of visualization is insight, not pictures.
+
+Now that we've gotten a feel for Observable, we'll do the same.
 
 #### Reading:
 
@@ -19,27 +21,13 @@ productive" ([Ref](https://medium.com/@mbostock/a-better-way-to-code-2b1d2876a3a
 
 Observable quakes on leaflet: https://beta.observablehq.com/@pbogden/earthquakes-on-leaflet/
 
-## Active reading
-
-In [A better way to code](https://medium.com/@mbostock/a-better-way-to-code-2b1d2876a3a0), Mike Bostock
-explains how Observable helps to promote "active reading," which is a concept described by Brett Victor
-in [Explorable Explanations](http://worrydream.com/ExplorableExplanations/).
-
-> An active reader asks questions, considers alternatives, questions assumptions,
-> and even questions the trustworthiness of the author.
-> An active reader tries to generalize specific examples, and devise specific examples
-> for generalities. An active reader doesn’t passively sponge up information,
-> but uses the author’s argument as a springboard for critical thought and deep understanding.
-
-In the next demo, we'll use interaction elements to create a visualization that promotes active reading.
-
-## Using Observable for visualization
+## Observable visualization
 
 There are quite a few reasons to use Observable for visualization.
 One reason is that Observable "minimizes the specialized knowledge you need to be
 productive" ([Ref](https://medium.com/@mbostock/a-better-way-to-code-2b1d2876a3a0)).
-It is also a "web-first" environment that runs in any browser
-and allows your code for data exploration "gracefully transition into code for
+It is also a "web-first" environment that runs in any browser, which means
+your code for data exploration "can gracefully transition into code for
 explanation." Another reason is because it's interactive.
 
 > Interactive programming improves our ability to scrutinize behavior by poking:
@@ -51,20 +39,20 @@ In other words, Observable is a "reactive" programming environment.
 
 We're used to "imperative" programming in scripting languages like Python
 and JavaScript (R works that way too).
-You may not think you've done reactive programming,
-but you've done reactive programming if you've used a spreadsheet.
-Imperative programming uses variable assignment, and you have to be careful
-about state of a variable because operations are sequential.
+Imperative programming uses variable "assignment", and you have to be careful
+about [state](https://en.wikipedia.org/wiki/State_(computer_science)) because operations are sequential.
 
     let i = 1;
     let x = 0;  // x = 0, i = 1;
-    x = 2 * i;  // x = 2, i = 1; Right now, x = 2, and x == 2 * i
-    ++i         // x = 2, i = 2; Right now, x = 2 but x != 2 * i
+    x = 2 * i;  // x = 2, i = 1; Right now, x = 2 because x = 2 * i and i = 2
+    ++i         // x = 2, i = 2; Now, x = 2 and i = 2, but x != 2 * i anymore
 
+Instead of variable assignment, reactive programming uses variable definition.
+In our example, this would mean that `x = 2 * i` is always true, even if `i` changes.
+You may not think you've done reactive programming before,
+but spreadsheets work this way.  Time for a demo.  
 
-whereas reactive programming uses variable definition.
-
-Time for a demo.
+Open an Observable notebook and experiment the following two cells:
 
     i = {
       let i = 0;
@@ -75,14 +63,14 @@ Time for a demo.
 
     \`The current value of 2 * i is ${2 * i}.\`
 
-The `yield` keyword in JavaScript and Python is used to pause and resume a
-generator function. (IE doesn't support `yield`.)
+The `yield` keyword exists in JavaScript and Python.  It is used to pause and
+resume a generator function. (Note however: IE does not support `yield`.)
 
 Q: What happens if you replace "yield" with "return"?
 
-Q: What would happen if you tried to do things sequentially
-by first creating the values in an Array, and then you returning the Array
-so that the array could be processed in another cell?
+Q: What would happen if you tried to do everything sequentially
+by first creating the values all the values of `i` in an Array, and then 
+returning the Array so could be processed in another cell?
 
     result = {
       let i = 0;
@@ -93,7 +81,7 @@ so that the array could be processed in another cell?
       return a;
     }
 
-Hint: Think about this. If you try it, you might be sorry.
+Hint: Think about this first. If you actually try it, you might be sorry.
 
 * Reading:
     * [Five-minute introduction](https://beta.observablehq.com/@mbostock/five-minute-introduction)
@@ -119,7 +107,22 @@ Hint: Think about this. If you try it, you might be sorry.
     If you want your Observable notebooks to run in older browsers, you'll need to do some extra work.
     MDN pages typically provide browser compatibility at the bottom of the page.
 
-## Interactive visualization
+## Active reading
+
+In [A better way to code](https://medium.com/@mbostock/a-better-way-to-code-2b1d2876a3a0), Mike Bostock
+explains how Observable helps to promote "active reading," which is a concept described by Brett Victor
+in [Explorable Explanations](http://worrydream.com/ExplorableExplanations/).
+
+> An active reader asks questions, considers alternatives, questions assumptions,
+> and even questions the trustworthiness of the author.
+> An active reader tries to generalize specific examples, and devise specific examples
+> for generalities. An active reader doesn’t passively sponge up information,
+> but uses the author’s argument as a springboard for critical thought and deep understanding.
+
+In the next demo, we'll start using interaction controls to create
+a visualization that promotes active reading.
+
+## Interactive controls for the reader
 
 Observable quakes on leaflet: https://beta.observablehq.com/@pbogden/earthquakes-on-leaflet/
 
