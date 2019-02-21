@@ -86,7 +86,7 @@ Issues (looking under the hood a little deeper)...
 
         quakes = (await fetch(url)).json()
 
-### Chloropleth maps
+### Choropleth maps
 
 We've seen scatterplots (dots), now let's look at maps...
 
