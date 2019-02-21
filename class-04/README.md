@@ -163,6 +163,15 @@ Observable quakes on leaflet: https://beta.observablehq.com/@pbogden/earthquakes
     * Space vs magnitude -- western/eastern hemisphere (as per homework assignment)
     * Space vs time -- Oklahoma
 
+1. `map.eachLayer(function(layer) { });`
+    * Show how to access the feature in each layer
+
+#### References
+
+* Leaflet docs
+    * https://leafletjs.com/reference-1.4.0.html#map-eachlayer)
+* [Loops and iteration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration) -- MDN Docs
+
 ## Earthquake Heatmap
 
 * Consider the caveat about heatmaps in [Observable Leaflet](https://beta.observablehq.com/@tmcw/leaflet)
