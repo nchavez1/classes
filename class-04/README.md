@@ -13,7 +13,7 @@ he provides the following quote from Ben Shneiderman:
 
 Now that we've gotten a feel for Observable, we'll do the same.
 
-#### Reading:
+#### Optional reading:
 
 * [A better way to code](https://medium.com/@mbostock/a-better-way-to-code-2b1d2876a3a0) -- Mike Bostock
 
@@ -69,7 +69,7 @@ resume a generator function. (Note however: IE does not support `yield`.)
 Q: What happens if you replace "yield" with "return"?
 
 Q: What would happen if you tried to do everything sequentially
-by first creating the values all the values of `i` in an Array, and then 
+by first creating the values all the values of `i` in an Array, and then
 returning the Array so could be processed in another cell?
 
     result = {
@@ -145,11 +145,17 @@ Observable quakes on leaflet: https://beta.observablehq.com/@pbogden/earthquakes
     * Shows how to do heatmap for DC crime that has been curated by Esri
 * [Leaflet.heat](https://github.com/Leaflet/Leaflet.heat) -- Leaflet Heatmap Plugin
 * [D3 + Leaflet](https://bost.ocks.org/mike/leaflet/) -- Mike Bostock (2012)
-    * This uses Leaflet v0.7 (vector overlay disappears temporarily on zoom)
+    * Uses Leaflet v0.7 (vector overlay disappears temporarily on zoom)
 * [Interactive Chloropleth map](https://leafletjs.com/examples/choropleth/) -- Leaflet docs
-    * This uses Leaflet v1.4 (huge improvement over D3 + Leaflet)
+    * Uses Leaflet v1.4 (huge improvement, compare with v0.7 D3 + Leaflet)
     * Shows how to interact with features -- nice!
-
+    * Does **not** show how to add/remove layers.
+    * Does show how to change feature style interactively using mouseover event
+        * Uses layer.setStyle
+        * Uses geojson.resetStyle
+        * Uses event.target to get the moused feature
+    * Figure out how to set fillOpacity 0 for features based on their magnitude
+        * This should probably set the style function
 * [Leaflet tutorials](https://leafletjs.com/examples.html) -- Leaflet docs
     * [Using GeoJSON with Leaflet](https://leafletjs.com/examples/geojson/)
     * [Leaflet extension methods](https://leafletjs.com/examples/extending/extending-2-layers.html)
