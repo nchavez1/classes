@@ -113,8 +113,9 @@ but spreadsheets work this way. Time for a demo so we can explore some of the im
 * Reading:
     * [Five-minute introduction](https://beta.observablehq.com/@mbostock/five-minute-introduction)
     * Note: At the bottom, you'll see a "brushable" scatterplot created with D3.
-    This behavior is built into the scatterplots we've seen with Plot.ly
+    This "brush" behavior is built into the scatterplots we've used in Plot.ly
 * References:
+    * [Iterators and generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators) -- MDN docs
     * [Generator functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators#Generator_functions) -- MDN docs
     * [function*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) -- MDN docs
 
