@@ -179,7 +179,6 @@ Observable quakes on leaflet: https://beta.observablehq.com/@pbogden/earthquakes
 ## Earthquake Heatmap
 
 * Consider the caveat about heatmaps in [Observable Leaflet](https://beta.observablehq.com/@tmcw/leaflet)
-* TODO: Adapt earthquakes dots on Leaflet to create a heatmap
 * Look at the data-processing step in [Observable Leaflet](https://beta.observablehq.com/@tmcw/leaflet)
 * Look at the metro pattern
 
@@ -208,7 +207,6 @@ Observable quakes on leaflet: https://beta.observablehq.com/@pbogden/earthquakes
 * [Interact with marker layer](https://stackoverflow.com/questions/13004226/how-to-interact-with-leaflet-marker-layer-from-outside-the-map) -- stackoverflow (2016)
 * [Assign id to marker in Leaflet](https://stackoverflow.com/questions/25683871/assign-id-to-marker-in-leaflet) -- stackoverflow (2015)
 * [L.stamp recommendation](https://github.com/Leaflet/Leaflet/issues/1805#issuecomment-257128259) -- github (2016)
-
 * [Introduction to Data](https://beta.observablehq.com/@mbostock/introduction-to-data) -- Mike Bostock
 * [Introduction to Promises](https://beta.observablehq.com/@mbostock/introduction-to-promises) -- Mike Bostock
 * [Observable standard library](https://github.com/observablehq/stdlib/blob/master/README.md)
