@@ -81,8 +81,11 @@ but spreadsheets work this way. Time for a demo so we can explore some of the im
           }
         }
 
-    The `yield` keyword exists in JavaScript and Python.  It is used to pause and
-    resume a generator function. (Note however: IE does not support `yield`.)
+    This cell is a `generator`, and it "yields" a value up to 60 times/second.
+    Although you may not have seen it before, the `yield` keyword exists in 
+    JavaScript and Python.  It is used to pause and
+    resume a `generator function`, which also exist in both JavaScript and Python. 
+    (Note: IE does not support `yield`.) 
 
     Q: What happens if you replace "yield" with "return"? Try it.
 
@@ -92,7 +95,7 @@ but spreadsheets work this way. Time for a demo so we can explore some of the im
 
 4. Try replacing `true` with `i < 100` in the previous expression for `i`
 
-5. And if you wanted to save every value of `x` in an array
+5. Iterators and generators exist in JavaScript and Python. They're used to iterate over each item in a collection. You've used iterators when you've used a JavaScript `Array` (Python `list`).
 
         result = {
             let i = 0;
@@ -103,14 +106,15 @@ but spreadsheets work this way. Time for a demo so we can explore some of the im
             return a;
         }
 
+    This cell creates an `Array` that saves every value of `i` and returns the Array of 100 values as `result`.
+
    Q: What would happen if you replaced `i < 100` with `true` now?  Think about it first. If you actually try it, you might be sorry.
 
 * Reading:
     * [Five-minute introduction](https://beta.observablehq.com/@mbostock/five-minute-introduction)
     * Note: At the bottom, you'll see a "brushable" scatterplot created with D3.
     This behavior is built into the scatterplots we've seen with Plot.ly
-
-* Optional references:
+* References:
     * [Generator functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators#Generator_functions) -- MDN docs
     * [function*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) -- MDN docs
 
