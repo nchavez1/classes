@@ -116,28 +116,12 @@ At the bottom, you'll see a "brushable" scatterplot created with D3.
 This "brush" behavior is built into the scatterplots we've used in Plot.ly
 
 #### References:
+
+* [Introduction to Generators](https://beta.observablehq.com/@mbostock/introduction-to-generators) -- Mike Bostock
 * [Iterators and generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators) -- MDN docs
 * [Generator functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators#Generator_functions) -- MDN docs
 * [function*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) -- MDN docs
-
-## Generators
-
-    (Repeated from last class): Observable uses some of the most modern browser capabilities,
-    such as Promises and Generators.  Generators enable communication between Observable cells,
-    allowing shared values to be updated dynamically.
-    The central JavaScript elements, which you'll see from time to time, include:
-
-    * `function*` -- declaration defines a "generator function", which returns a "Generator" object
-    * `Generator` -- an object that conforms to the `iterable` and `iterator` protocols
-        * `Generator.prototype.next()` -- returns the value yielded by the "yield" expression
-        * `Generator.prototype.return()` -- as `.next()` and also finishes generator
-        * `Generator.prototype.throw()` -- throws an error to a generator (and finishes the generator, unless the error is caught)
-    * `yield` -- used to pause/resume a generator function
-
-    Older browsers (e.g., IE) don't know about Generators, or Promises, or
-    many of the other cool things built into Observable.
-    If you want your Observable notebooks to run in older browsers, you'll need to do some extra work.
-    MDN typically provides browser compatibility at the bottom of each page in the reference docs.
+* [Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator) -- MDN docs
 
 ## Active reading
 
@@ -158,15 +142,8 @@ a visualization that promotes active reading.
 
 Observable quakes on leaflet: https://beta.observablehq.com/@pbogden/earthquakes-on-leaflet/
 
-* TODO: Introduce a slider to solve the homework assignment for Class #3
-    * Use this to develop some insights about the data
-    * Overall pattern -- plate tectonics
-    * Space vs magnitude -- western/eastern hemisphere (as per homework assignment)
-    * Space vs time -- Oklahoma
-
 1. `map.eachLayer(function(layer) { });`
     * Show how to access the feature in each layer
-
 
 #### References
 
@@ -197,25 +174,14 @@ Observable quakes on leaflet: https://beta.observablehq.com/@pbogden/earthquakes
         * Uses layer.setStyle
         * Uses geojson.resetStyle
         * Uses event.target to get the moused feature
-    * Figure out how to set fillOpacity 0 for features based on their magnitude
-        * This should probably set the style function
 * [Leaflet tutorials](https://leafletjs.com/examples.html) -- Leaflet docs
     * [Using GeoJSON with Leaflet](https://leafletjs.com/examples/geojson/)
     * [Leaflet extension methods](https://leafletjs.com/examples/extending/extending-2-layers.html)
     * [Working with map panes](https://leafletjs.com/examples/map-panes/)
     * [Zoom levels](https://leafletjs.com/examples/zoom-levels/)
-* [Interact with marker layer](https://stackoverflow.com/questions/13004226/how-to-interact-with-leaflet-marker-layer-from-outside-the-map) -- stackoverflow (2016)
-* [Assign id to marker in Leaflet](https://stackoverflow.com/questions/25683871/assign-id-to-marker-in-leaflet) -- stackoverflow (2015)
-* [L.stamp recommendation](https://github.com/Leaflet/Leaflet/issues/1805#issuecomment-257128259) -- github (2016)
 * [Introduction to Data](https://beta.observablehq.com/@mbostock/introduction-to-data) -- Mike Bostock
 * [Introduction to Promises](https://beta.observablehq.com/@mbostock/introduction-to-promises) -- Mike Bostock
 * [Observable standard library](https://github.com/observablehq/stdlib/blob/master/README.md)
-
-#### References
-
-* [Introduction to Generators](https://beta.observablehq.com/@mbostock/introduction-to-generators) -- Mike Bostock
-* [function*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) -- MDN docs
-* [Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator) -- MDN docs
 
 ## Choropleth maps
 
@@ -235,4 +201,4 @@ Observable quakes on leaflet: https://beta.observablehq.com/@pbogden/earthquakes
 
 ## Class #4 Assignment
 
-* Investigate alternative visualizations of the crime data that mitigate stated concerns about heatmaps
+* Create an interactive visualization that adds insights about earthquakes in and around Oklahoma City
