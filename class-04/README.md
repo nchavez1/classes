@@ -223,6 +223,7 @@ Observable quakes on leaflet: https://beta.observablehq.com/@pbogden/earthquakes
 
 * [D3 Choropleth](https://beta.observablehq.com/@mbostock/d3-choropleth) -- Mike Bostock
 * [Interactive Choropleth demo](https://leafletjs.com/examples/choropleth/) -- Leaflet docs
+* [Plot.ly Choropleth demo](https://plot.ly/python/choropleth-maps/)
 
 ## Project ideas
 
